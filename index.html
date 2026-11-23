@@ -7,7 +7,7 @@
   <title>Digital Tambola (Housie) • Digital Swami</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👑</text></svg>" />
   <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Kalam:wght@700&family=Noto+Sans+Devanagari:wght@600;800&family=Noto+Sans+Telugu:wght@600;800&family=Poppins:wght@500;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Kalam:wght@700&family=Noto+Sans+Devanagari:wght@600;800&family=Noto+Sans+Telugu:wght@600;800&family=Pirata+One&family=Poppins:wght@500;700;800;900&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-dark: #090d16;
@@ -104,12 +104,14 @@
     }
 
     h1 {
+      font-family: 'Pirata One', 'UnifrakturMaguntia', 'Noto Sans Telugu', 'Noto Sans Devanagari', serif;
       margin: 2px 0 6px;
       color: var(--gold);
       text-align: center;
-      font-size: clamp(1.4rem, 5.2vw, 2.2rem);
-      text-shadow: 0 4px 18px rgba(245, 158, 11, 0.45), 0 2px 0 #78350f;
-      letter-spacing: 0.4px;
+      font-size: clamp(1.75rem, 6vw, 2.65rem);
+      font-weight: 400;
+      text-shadow: 0 4px 18px rgba(245, 158, 11, 0.55), 0 3px 0 #78350f, 2px 2px 0 #000000;
+      letter-spacing: 1.8px;
     }
 
     .top-action-bar {
@@ -481,9 +483,10 @@
     }
     .podium-medal { font-size: 1.35rem; line-height: 1.1; }
     .podium-name {
-      font-family: 'Kalam', 'Noto Sans Telugu', 'Noto Sans Devanagari', cursive;
-      font-size: 1.3rem;
-      font-weight: 700;
+      font-family: 'Pirata One', 'UnifrakturMaguntia', 'Noto Sans Telugu', 'Noto Sans Devanagari', serif;
+      font-size: 1.48rem;
+      font-weight: 400;
+      letter-spacing: 1.1px;
       color: #dc2626;
       margin: 2px 0;
     }
@@ -494,6 +497,51 @@
     }
 
     /* Mobile-Optimized 3x9 Ticket Grid */
+
+    /* Player-Friendly Ticket Progress & Quick Feedback */
+    .ticket-meta-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+      padding: 7px 10px;
+      background: rgba(255, 255, 255, 0.78);
+      border: 1.5px solid #e2d8c0;
+      border-radius: 10px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: #1e293b;
+    }
+    .ticket-progress-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: 1;
+      min-width: 160px;
+    }
+    .ticket-progress-track {
+      flex: 1;
+      height: 8px;
+      background: #e2e8f0;
+      border-radius: 999px;
+      overflow: hidden;
+      border: 1px solid #cbd5e1;
+    }
+    .ticket-progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #f59e0b, #10b981);
+      border-radius: 999px;
+      transition: width 0.25s ease;
+    }
+    .cell.called-hint:not(.marked) {
+      border-color: #f59e0b;
+      background: #fffbeb;
+      box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.35), 0 2px 5px rgba(0,0,0,0.1);
+    }
+
     .ticket {
       display: grid;
       grid-template-columns: repeat(9, 1fr);
@@ -747,17 +795,19 @@
     }
     .rule-chip strong { color: #92400e; display: block; }
 
-    /* Winners Announcement Folding Paper Modal */
+    /* ============================================================
+       REALISTIC 3D FOLDED PAPER SLIP -> UNFOLDS TO REVEAL WINNER NAME
+       ============================================================ */
     #winnerFoldModal {
       position: fixed;
       inset: 0;
-      background: rgba(6, 9, 19, 0.86);
+      background: rgba(6, 9, 19, 0.88);
       display: none;
       align-items: center;
       justify-content: center;
       z-index: 10000;
       padding: 12px;
-      backdrop-filter: blur(6px);
+      backdrop-filter: blur(7px);
       perspective: 1400px;
     }
     #winnerFoldModal.active {
@@ -765,39 +815,47 @@
       animation: fadeIn 0.22s ease-out;
     }
     .folding-paper-wrapper {
+      position: relative;
       width: 100%;
       max-width: 410px;
       transform-style: preserve-3d;
-      animation: paperDropBounce 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      animation: foldedSlipEntrance 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
     }
-    @keyframes paperDropBounce {
-      0% { transform: translateY(-80px) scale(0.75) rotate(-5deg); opacity: 0; }
+    @keyframes foldedSlipEntrance {
+      0% { transform: translateY(-110px) scale(0.62) rotate(-8deg); opacity: 0; }
+      65% { transform: translateY(6px) scale(1.02) rotate(2deg); opacity: 1; }
       100% { transform: translateY(0) scale(1) rotate(0deg); opacity: 1; }
     }
 
+    /* Folded Paper Outer Cover Flaps that physically open up & down */
     .paper-flap-top {
-      background: linear-gradient(180deg, #f3e7c9 0%, #fdf8eb 100%);
+      position: relative;
+      background: linear-gradient(180deg, #ead8b1 0%, #f7edd4 60%, #fdf8eb 100%);
       color: var(--ink-dark);
       border: 3px solid #ffffff;
-      border-bottom: 2px dashed #cbbba0;
-      border-radius: 18px 18px 4px 4px;
-      padding: 14px 18px 10px;
+      border-bottom: 2.5px dashed #b45309;
+      border-radius: 18px 18px 3px 3px;
+      padding: 15px 18px 11px;
       text-align: center;
       transform-origin: bottom center;
-      transform: rotateX(-165deg);
-      box-shadow: 0 -8px 20px rgba(0,0,0,0.25);
-      animation: unfoldTopFlap 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) 0.22s forwards;
+      transform: rotateX(-176deg);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.35), inset 0 -6px 14px rgba(180, 83, 9, 0.14);
+      animation: unfoldTopFlap 0.85s cubic-bezier(0.34, 1.45, 0.64, 1) 0.42s forwards;
       backface-visibility: visible;
+      z-index: 4;
     }
     @keyframes unfoldTopFlap {
-      0% { transform: rotateX(-165deg); filter: brightness(0.78); }
+      0% { transform: rotateX(-176deg); filter: brightness(0.75); }
+      55% { transform: rotateX(-35deg); filter: brightness(0.94); }
       100% { transform: rotateX(0deg); filter: brightness(1); }
     }
 
+    /* Inner Paper Sheet containing the Winner's Name (hidden while folded, revealed as flaps open) */
     .paper-center-sheet {
       position: relative;
       background: var(--paper-cream);
       background-image:
+        linear-gradient(180deg, rgba(180,83,9,0.12) 0%, transparent 14%, transparent 86%, rgba(180,83,9,0.12) 100%),
         repeating-linear-gradient(
           to bottom,
           transparent 0px,
@@ -807,11 +865,24 @@
       color: var(--ink-dark);
       border-left: 3px solid #ffffff;
       border-right: 3px solid #ffffff;
-      padding: 16px 18px;
+      padding: 18px 18px;
       text-align: center;
-      box-shadow: 0 20px 45px rgba(0,0,0,0.55);
+      box-shadow: 0 22px 48px rgba(0,0,0,0.6), inset 0 0 25px rgba(217, 199, 163, 0.4);
       z-index: 2;
+      overflow: hidden;
     }
+    /* Paper Crease Shadow Line across the middle */
+    .paper-center-sheet::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(146, 64, 14, 0.22), transparent);
+      pointer-events: none;
+    }
+
     .winner-prize-sticker {
       display: inline-block;
       background: var(--gold);
@@ -824,22 +895,33 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       transform: rotate(-2deg);
       margin-bottom: 6px;
+      opacity: 0;
+      animation: innerContentUnfold 0.4s ease-out 0.72s forwards;
     }
     .winner-name-reveal {
-      font-family: 'Kalam', 'Noto Sans Telugu', 'Noto Sans Devanagari', cursive;
-      font-size: clamp(2rem, 7vw, 2.9rem);
-      font-weight: 700;
+      font-family: 'Pirata One', 'UnifrakturMaguntia', 'Noto Sans Telugu', 'Noto Sans Devanagari', serif;
+      font-size: clamp(2.25rem, 7.8vw, 3.35rem);
+      font-weight: 400;
+      letter-spacing: 1.6px;
       color: var(--ink-red);
       line-height: 1.15;
-      margin: 4px 0;
-      text-shadow: 2px 2px 0 rgba(245, 158, 11, 0.35);
+      margin: 6px 0;
+      text-shadow: 2px 2px 0 rgba(245, 158, 11, 0.45), 1px 1px 0 #1e293b;
       opacity: 0;
-      transform: scale(0.5);
-      animation: winnerNamePop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s forwards;
+      transform: scale(0.4) translateY(10px);
+      animation: winnerNamePop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.82s forwards;
+    }
+    @keyframes innerContentUnfold {
+      from { opacity: 0; transform: translateY(-6px) scale(0.85); }
+      to { opacity: 1; transform: translateY(0) scale(1) rotate(-2deg); }
+    }
+    @keyframes innerFadeUp {
+      from { opacity: 0; transform: translateY(8px) scale(0.95); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
     }
     @keyframes winnerNamePop {
-      0% { opacity: 0; transform: scale(0.45) rotate(-6deg); }
-      70% { opacity: 1; transform: scale(1.1) rotate(2deg); }
+      0% { opacity: 0; transform: scale(0.4) rotate(-6deg); }
+      70% { opacity: 1; transform: scale(1.12) rotate(2deg); }
       100% { opacity: 1; transform: scale(1) rotate(-1deg); }
     }
     .winner-sub-note {
@@ -847,6 +929,8 @@
       font-size: 1.25rem;
       color: var(--ink-blue);
       font-weight: 700;
+      opacity: 0;
+      animation: innerFadeUp 0.4s ease-out 0.95s forwards;
     }
 
     .modal-top3-list {
@@ -876,24 +960,29 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 8px;
+      opacity: 0;
+      animation: innerFadeUp 0.4s ease-out 1.05s forwards;
     }
 
     .paper-flap-bottom {
-      background: linear-gradient(0deg, #f3e7c9 0%, #fdf8eb 100%);
+      position: relative;
+      background: linear-gradient(0deg, #ead8b1 0%, #f7edd4 60%, #fdf8eb 100%);
       color: var(--ink-dark);
       border: 3px solid #ffffff;
-      border-top: 2px dashed #cbbba0;
-      border-radius: 4px 4px 18px 18px;
-      padding: 10px 18px 14px;
+      border-top: 2.5px dashed #b45309;
+      border-radius: 3px 3px 18px 18px;
+      padding: 11px 18px 14px;
       text-align: center;
       transform-origin: top center;
-      transform: rotateX(165deg);
-      box-shadow: 0 14px 28px rgba(0,0,0,0.4);
-      animation: unfoldBottomFlap 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) 0.35s forwards;
+      transform: rotateX(176deg);
+      box-shadow: 0 14px 28px rgba(0,0,0,0.45), inset 0 6px 14px rgba(180, 83, 9, 0.14);
+      animation: unfoldBottomFlap 0.85s cubic-bezier(0.34, 1.45, 0.64, 1) 0.52s forwards;
       backface-visibility: visible;
+      z-index: 4;
     }
     @keyframes unfoldBottomFlap {
-      0% { transform: rotateX(165deg); filter: brightness(0.78); }
+      0% { transform: rotateX(176deg); filter: brightness(0.75); }
+      55% { transform: rotateX(35deg); filter: brightness(0.94); }
       100% { transform: rotateX(0deg); filter: brightness(1); }
     }
 
@@ -944,23 +1033,314 @@
       animation: stickerSlap 0.3s ease-out;
     }
 
-    @media (max-width: 560px) {
-      body { padding: 10px 8px 42px; }
-      .paper-panel { padding: 14px 10px; border-radius: 12px; }
-      .lobby-row { flex-direction: column; align-items: stretch; }
-      .lobby-row input, .lobby-row button { width: 100%; }
-      .host-controls-row { flex-direction: column; align-items: stretch; }
-      .host-controls-row .row { width: 100%; }
-      .host-controls-row button { flex: 1; }
-      .ticket { gap: 3px; padding: 5px; }
-      .board { gap: 3px; }
-      .claims-grid { grid-template-columns: repeat(2, 1fr); gap: 7px; }
+
+
+    /* 5-Ball Drop Modal (5 balls drop from top -> 1 number selected) */
+    #fiveBallDropModal {
+      position: fixed;
+      inset: 0;
+      background: rgba(6, 9, 19, 0.86);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+      padding: 14px;
+      backdrop-filter: blur(6px);
+    }
+    #fiveBallDropModal.active {
+      display: flex;
+      animation: fadeIn 0.2s ease-out;
+    }
+    .drop-tray-card {
+      position: relative;
+      background: var(--paper-cream);
+      color: var(--ink-dark);
+      border: 4px solid #ffffff;
+      border-radius: 22px;
+      padding: 20px 18px;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 24px 55px rgba(0,0,0,0.68), 0 7px 0 #d6cbb5;
+      animation: stickerPopup 0.32s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .drop-chute-top {
+      height: 14px;
+      background: repeating-linear-gradient(
+        90deg,
+        #b45309 0px,
+        #b45309 14px,
+        #f59e0b 14px,
+        #f59e0b 28px
+      );
+      border-radius: 999px;
+      border: 2px solid #ffffff;
+      margin-bottom: 14px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    }
+    .five-balls-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      min-height: 76px;
+      margin: 10px 0 14px;
+    }
+    .drop-ball {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Kalam', cursive;
+      font-weight: 700;
+      font-size: 1.45rem;
+      color: #0f172a;
+      background: radial-gradient(circle at 30% 30%, #ffffff, #fde68a 55%, #d97706);
+      border: 3px solid #ffffff;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.28);
+      opacity: 0;
+      transform: translateY(-90px) scale(0.75);
+      transition: transform 0.25s ease, opacity 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+    }
+    .drop-ball.falling {
+      opacity: 1;
+      animation: ballDropIn 0.45s cubic-bezier(0.22, 1.25, 0.36, 1) forwards;
+    }
+    .drop-ball.picked {
+      background: radial-gradient(circle at 30% 30%, #fca5a5, #dc2626 65%, #7f1d1d);
+      color: #ffffff;
+      transform: scale(1.22);
+      box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.65), 0 10px 24px rgba(220, 38, 38, 0.55);
+      z-index: 3;
+    }
+    .drop-ball.eliminated {
+      opacity: 0.35;
+      transform: scale(0.86);
+      filter: grayscale(0.75);
+    }
+    @keyframes ballDropIn {
+      0% { opacity: 0; transform: translateY(-95px) scale(0.7) rotate(-18deg); }
+      75% { opacity: 1; transform: translateY(6px) scale(1.05) rotate(6deg); }
+      100% { opacity: 1; transform: translateY(0) scale(1) rotate(0deg); }
+    }
+    .drop-result-banner {
+      font-family: 'Pirata One', 'Noto Sans Telugu', 'Noto Sans Devanagari', serif;
+      font-size: 1.55rem;
+      color: #dc2626;
+      min-height: 34px;
+      margin-top: 6px;
+      letter-spacing: 0.8px;
+    }
+
+    /* Confetti Celebration Canvas */
+    #confettiCanvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10002;
+      pointer-events: none;
+    }
+
+    /* Last 5 Called Numbers Strip */
+    .last5-strip {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+      padding: 8px 10px;
+      background: rgba(254, 243, 199, 0.72);
+      border: 1.5px dashed #d97706;
+      border-radius: 10px;
+    }
+    .last5-label {
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: #92400e;
+    }
+    .last5-balls {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .l5-ball {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Kalam', cursive;
+      font-weight: 700;
+      font-size: 0.95rem;
+      background: #ffffff;
+      color: #1e293b;
+      border: 2px solid #cbd5e1;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.12);
+    }
+    .l5-ball.latest {
+      background: radial-gradient(circle at 30% 30%, #fbbf24, #d97706);
+      color: #ffffff;
+      border-color: #ffffff;
+      transform: scale(1.14);
+      box-shadow: 0 3px 10px rgba(217, 119, 6, 0.45);
+      animation: stickerSlap 0.3s ease-out;
+    }
+
+    /* Draw Speed Selector & Auto-Mark Pill */
+    .speed-select {
+      padding: 6px 10px;
+      min-height: 36px;
+      border-radius: 10px;
+      border: 2px solid #ffffff;
+      background: #1e293b;
+      color: #fbbf24;
+      font-weight: 800;
+      font-size: 0.78rem;
+      cursor: pointer;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.22);
+    }
+    .sticker-btn.automark-on {
+      background: #8b5cf6;
+      color: #ffffff;
+      font-size: 0.76rem;
+      padding: 5px 10px;
+      min-height: 34px;
+      box-shadow: 0 3px 0 #5b21b6, 0 5px 10px rgba(0,0,0,0.2);
+    }
+    .sticker-btn.automark-off {
+      background: #e2e8f0;
+      color: #475569;
+      font-size: 0.76rem;
+      padding: 5px 10px;
+      min-height: 34px;
+      box-shadow: 0 3px 0 #94a3b8, 0 5px 10px rgba(0,0,0,0.15);
+    }
+
+    /* Mobile-First Responsive & Touch-Friendly Interface */
+    @media (max-width: 600px) {
+      body {
+        padding: 8px 8px calc(44px + env(safe-area-inset-bottom, 0px));
+      }
+      h1 {
+        font-size: clamp(1.55rem, 6.8vw, 2.1rem);
+        margin: 2px 0 4px;
+      }
+      .top-action-bar {
+        gap: 6px;
+        margin-bottom: 10px;
+      }
+      .paper-panel {
+        padding: 13px 10px;
+        border-radius: 12px;
+      }
+      .paper-panel::before, .paper-panel::after {
+        width: 44px;
+        height: 12px;
+        top: -6px;
+      }
+      input {
+        font-size: 16px; /* Prevents mobile Safari/Chrome auto-zoom on focus */
+        min-height: 48px;
+      }
+      .lobby-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .lobby-row input, .lobby-row button {
+        width: 100%;
+      }
+      .status-bar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+      }
+      .status-bar > .row {
+        justify-content: space-between;
+        width: 100%;
+      }
+      .status-bar > div:nth-child(2) {
+        text-align: center;
+        background: rgba(254, 243, 199, 0.7);
+        padding: 4px 8px;
+        border-radius: 8px;
+        border: 1px dashed #d97706;
+      }
+      .host-controls-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .host-controls-row .row {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 7px;
+      }
+      .host-controls-row #fiveBallDropBtn {
+        grid-column: 1 / -1;
+        min-height: 48px;
+        font-size: 1rem;
+      }
+      .host-controls-row #resetBtn {
+        grid-column: 1 / -1;
+      }
+      .speed-select {
+        width: 100%;
+        min-height: 42px;
+        text-align: center;
+      }
+      .ticket {
+        gap: 3px;
+        padding: 5px;
+      }
+      .cell {
+        aspect-ratio: 1 / 1.15;
+        font-size: clamp(0.92rem, 4.2vw, 1.2rem);
+        border-radius: 6px;
+      }
+      .board {
+        gap: 3px;
+      }
+      .b-num {
+        padding: 5px 0;
+        font-size: 0.72rem;
+      }
+      .claims-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 7px;
+      }
+      .sticker-btn.claim-btn {
+        min-height: 44px;
+        font-size: 0.8rem;
+        padding: 8px 6px;
+      }
+      .last5-strip {
+        justify-content: center;
+        gap: 8px;
+      }
+      .l5-ball {
+        width: 30px;
+        height: 30px;
+        font-size: 0.88rem;
+      }
+      .popup-card {
+        padding: 20px 18px;
+      }
+      .popup-number {
+        font-size: 4.5rem;
+      }
     }
   </style>
 </head>
 <body>
 
   <canvas id="bg3dCanvas"></canvas>
+  <canvas id="confettiCanvas"></canvas>
   <div class="ambient-3d-glow"></div>
 
   <div class="watermark-layer" aria-hidden="true">
@@ -1038,6 +1418,7 @@
         </div>
         <div class="players-strip" id="playersStrip"></div>
 
+
         <!-- Top 3 Players Leaderboard (Revealed after Full House is won) -->
         <div class="top3-podium-panel" id="top3PodiumPanel">
           <div class="top3-title">
@@ -1054,8 +1435,15 @@
       <div class="paper-panel" id="hostControls" style="display: none;">
         <div class="row host-controls-row" style="justify-content: space-between;">
           <div class="row">
-            <button class="sticker-btn" id="drawBtn" onclick="drawNextNumber()">🎲 Draw Number</button>
-            <button class="sticker-btn secondary" id="autoBtn" onclick="toggleAutoDraw()">▶ Auto Draw (5s)</button>
+                        <button class="sticker-btn success" id="fiveBallDropBtn" onclick="startFiveBallDrop(false)">🎱 5-Ball Drop</button>
+            <button class="sticker-btn secondary" id="autoBtn" onclick="toggleAutoDraw()">▶ Auto Draw</button>
+            <select id="drawSpeedSelect" class="speed-select" onchange="changeDrawSpeed()" title="Auto Draw Speed">
+              <option value="2500">⚡ 2.5s</option>
+              <option value="4000">🚀 4s</option>
+              <option value="5000" selected>⏱️ 5s</option>
+              <option value="7000">🐢 7s</option>
+              <option value="10000">🧘 10s</option>
+            </select>
             <button class="sticker-btn danger" id="resetBtn" onclick="resetGameRound()" disabled>🔒 New Round</button>
           </div>
           <span style="font-size: 0.8rem; font-weight: 700; color: #92400e;" id="newRoundHint">
@@ -1069,9 +1457,29 @@
       <div class="paper-panel">
         <div class="row" style="justify-content: space-between;">
           <strong style="font-size: 1rem;" id="yourTicketHeading">🎟️ Your Unique Tambola Ticket</strong>
-          <span class="paper-sticker-badge" id="tapNumbersHint">✒️ Tap called numbers</span>
+          <div class="row" style="gap: 6px;">
+            <button class="sticker-btn automark-off" id="autoMarkBtn" onclick="toggleAutoMark()">🪄 Auto-Mark: OFF</button>
+            <span class="paper-sticker-badge" id="tapNumbersHint">✒️ Tap called numbers</span>
+          </div>
+        </div>
+                <div class="ticket-meta-bar" id="ticketMetaBar">
+          <span id="ticketProgressLabel">🎯 Marked: <strong id="ticketMarkedCount">0</strong>/15</span>
+          <div class="ticket-progress-wrap">
+            <div class="ticket-progress-track">
+              <div class="ticket-progress-fill" id="ticketProgressFill"></div>
+            </div>
+          </div>
+          <span id="ticketPercentLabel" style="color:#047857;">0%</span>
         </div>
         <div class="ticket" id="ticketGrid"></div>
+
+        <!-- Last 5 Called Numbers Strip right below Ticket -->
+        <div class="last5-strip" id="ticketLast5Strip">
+          <span class="last5-label" id="last5Label">🎱 Last 5 Numbers:</span>
+          <div class="last5-balls" id="last5Balls">
+            <span class="l5-ball">-</span>
+          </div>
+        </div>
 
         <div style="margin-top: 14px; font-weight: 800; font-size: 0.92rem;" id="claimPrizesHeading">🏆 Claim Prize Stickers:</div>
         <div class="claims-grid" id="claimButtons">
@@ -1102,6 +1510,17 @@
       <div style="text-align: center; margin-top: 12px;">
         <button class="sticker-btn" id="rulesGotItBtn" onclick="closeRulesPopup()">✅ Got It, Let's Play!</button>
       </div>
+    </div>
+  </div>
+
+  <!-- 5-Ball Drop Modal (5 balls drop from top -> 1 number selected) -->
+  <div id="fiveBallDropModal">
+    <div class="drop-tray-card" onclick="event.stopPropagation()">
+      <div class="drop-chute-top"></div>
+      <div class="paper-sticker-badge" id="fiveBallBadge">🎱 5-Ball Drop • Pick 1</div>
+      <div class="five-balls-row" id="fiveBallsRow"></div>
+      <div class="drop-result-banner" id="fiveBallResultText">...</div>
+      <div class="popup-hint" id="fiveBallSubText">5 balls from top → 1 winning number</div>
     </div>
   </div>
 
@@ -1173,9 +1592,14 @@
         ticketLabel: "Ticket",
         onlineSuffix: "online",
         connectedLobby: "👥 Connected Lobby",
-        drawNumber: "🎲 Draw Number",
-        autoDrawStart: "▶ Auto Draw (5s)",
+        fiveBallDropBtn: "🎱 5-Ball Drop",
+        fiveBallBadge: "🎱 5 Balls Dropped • Picking 1",
+        fiveBallSub: "5 balls from top → 1 number selected",
+        autoDrawStart: "▶ Auto Draw",
         autoDrawStop: "⏸ Stop Auto",
+        last5Label: "🎱 Last 5 Numbers:",
+        autoMarkOn: "🪄 Auto-Mark: ON",
+        autoMarkOff: "🪄 Auto-Mark: OFF",
         newRoundLocked: "🔒 New Round",
         newRoundUnlocked: "🔁 New Round",
         startNewRoundBtn: "🔁 Start New Round",
@@ -1184,6 +1608,7 @@
         hintReadyNewRound: "✅ Full House complete! Ready for New Round.",
         yourTicketHeading: "🎟️ Your Unique Tambola Ticket",
         tapNumbersHint: "✒️ Tap called numbers",
+        ticketProgressPrefix: "🎯 Marked:",
         claimPrizesHeading: "🏆 Claim Prize Stickers:",
         masterBoardHeading: "📋 Master Board (1–90)",
         numberDrawnLabel: "Number Drawn",
@@ -1265,9 +1690,14 @@
         ticketLabel: "టికెట్",
         onlineSuffix: "ఆన్‌లైన్",
         connectedLobby: "👥 జాయిన్ అయిన ప్లేయర్స్",
-        drawNumber: "🎲 నంబర్ తీయండి",
-        autoDrawStart: "▶ ఆటో డ్రా (5సె)",
+        fiveBallDropBtn: "🎱 5 బాల్స్ డ్రాప్",
+        fiveBallBadge: "🎱 పైనుండి 5 బాల్స్ • 1 నంబర్ ఎంపిక",
+        fiveBallSub: "5 బాల్స్ పడి అందులో 1 నంబర్ వస్తుంది",
+        autoDrawStart: "▶ ఆటో డ్రా",
         autoDrawStop: "⏸ ఆటో ఆపండి",
+        last5Label: "🎱 చివరి 5 నంబర్లు:",
+        autoMarkOn: "🪄 ఆటో-మార్క్: ON",
+        autoMarkOff: "🪄 ఆటో-మార్క్: OFF",
         newRoundLocked: "🔒 కొత్త రౌండ్",
         newRoundUnlocked: "🔁 కొత్త రౌండ్",
         startNewRoundBtn: "🔁 కొత్త రౌండ్ ప్రారంభించండి",
@@ -1276,6 +1706,7 @@
         hintReadyNewRound: "✅ ఫుల్ హౌస్ పూర్తయింది! కొత్త రౌండ్ సిద్ధంగా ఉంది.",
         yourTicketHeading: "🎟️ మీ ప్రత్యేక తంబోలా టికెట్",
         tapNumbersHint: "✒️ పిలిచిన నంబర్లపై నొక్కండి",
+        ticketProgressPrefix: "🎯 మార్క్ చేసినవి:",
         claimPrizesHeading: "🏆 బహుమతులు క్లెయిమ్ చేయండి:",
         masterBoardHeading: "📋 మాస్టర్ బోర్డ్ (1–90)",
         numberDrawnLabel: "వచ్చిన నంబర్",
@@ -1357,9 +1788,14 @@
         ticketLabel: "टिकट",
         onlineSuffix: "ऑनलाइन",
         connectedLobby: "👥 जुड़े हुए खिलाड़ी",
-        drawNumber: "🎲 नंबर निकालें",
-        autoDrawStart: "▶ ऑटो ड्रॉ (5s)",
+        fiveBallDropBtn: "🎱 5-बॉल ड्रॉप",
+        fiveBallBadge: "🎱 ऊपर से 5 गेंदें • 1 नंबर चुना जाएगा",
+        fiveBallSub: "5 गेंदों में से 1 नंबर आएगा",
+        autoDrawStart: "▶ ऑटो ड्रॉ",
         autoDrawStop: "⏸ ऑटो रोकें",
+        last5Label: "🎱 पिछले 5 नंबर:",
+        autoMarkOn: "🪄 ऑटो-मार्क: ON",
+        autoMarkOff: "🪄 ऑटो-मार्क: OFF",
         newRoundLocked: "🔒 नया राउंड",
         newRoundUnlocked: "🔁 नया राउंड",
         startNewRoundBtn: "🔁 नया राउंड शुरू करें",
@@ -1368,6 +1804,7 @@
         hintReadyNewRound: "✅ फुल हाउस पूरा हुआ! नया राउंड शुरू करने के लिए तैयार।",
         yourTicketHeading: "🎟️ आपका यूनिक तंबोला टिकट",
         tapNumbersHint: "✒️ बोले गए नंबरों पर टैप करें",
+        ticketProgressPrefix: "🎯 मार्क किए गए:",
         claimPrizesHeading: "🏆 इनाम क्लेम करें:",
         masterBoardHeading: "📋 मास्टर बोर्ड (1–90)",
         numberDrawnLabel: "निकला हुआ नंबर",
@@ -1429,31 +1866,100 @@
     const LINGO_EN = {
       1: "Kelly's Eye, Number 1", 2: "One Little Duck, Number 2", 3: "Cup of Tea, Number 3",
       4: "Knock at the Door, Number 4", 5: "Man Alive, Number 5", 6: "Tom Mix, Number 6",
-      7: "Lucky Seven", 8: "Garden Gate, Number 8", 9: "Doctor's Orders, Number 9",
-      10: "Prime Minister's Den, 10", 11: "Legs Eleven", 12: "One Dozen, 12",
+      7: "Lucky Seven, Number 7", 8: "Garden Gate, Number 8", 9: "Doctor's Orders, Number 9",
+      10: "Prime Minister's Den, 10", 11: "Legs Eleven, 11", 12: "One Dozen, 12",
       13: "Unlucky for Some, 13", 14: "Valentine's Day, 14", 15: "Young and Keen, 15",
-      16: "Sweet Sixteen", 17: "Dancing Queen, 17", 18: "Coming of Age, 18",
+      16: "Sweet Sixteen, 16", 17: "Dancing Queen, 17", 18: "Coming of Age, 18",
       19: "Goodbye Teens, 19", 20: "One Score, 20", 21: "Key of the Door, 21",
-      22: "Two Little Ducks, 22", 25: "Duck and Dive, 25", 30: "Dirty Gertie, 30",
-      33: "All the Threes, 33", 40: "Life Begins at 40", 44: "Droopy Drawers, 44",
-      45: "Halfway There, 45", 50: "Half a Century, 50", 55: "Snakes Alive, 55",
-      60: "Five Dozen, 60", 66: "Clickety Click, 66", 70: "Three Score and Ten, 70",
-      77: "Sunset Strip, 77", 80: "Eight and Blank, 80", 88: "Two Fat Ladies, 88",
-      89: "Nearly There, 89", 90: "Top of the Shop, 90"
+      22: "Two Little Ducks, 22", 23: "Thee and Me, 23", 24: "Two Dozen, 24",
+      25: "Duck and Dive, 25", 26: "Pick and Mix, 26", 27: "Gateway to Heaven, 27",
+      28: "In a State, 28", 29: "Rise and Shine, 29", 30: "Dirty Gertie, 30",
+      31: "Get Up and Run, 31", 32: "Buckle My Shoe, 32", 33: "All the Threes, 33",
+      34: "Ask for More, 34", 35: "Jump and Jive, 35", 36: "Three Dozen, 36",
+      37: "More than Eleven, 37", 38: "Christmas Cake, 38", 39: "Steps, 39",
+      40: "Life Begins at 40", 41: "Time for Fun, 41", 42: "Winnie the Pooh, 42",
+      43: "Down on Your Knees, 43", 44: "Droopy Drawers, 44", 45: "Halfway There, 45",
+      46: "Up to Tricks, 46", 47: "Four and Seven, 47", 48: "Four Dozen, 48",
+      49: "PC, 49", 50: "Half a Century, 50", 51: "Tweak of the Thumb, 51",
+      52: "Danny La Rue, 52", 53: "Stuck in the Tree, 53", 54: "Clean the Floor, 54",
+      55: "Snakes Alive, 55", 56: "Was She Worth It, 56", 57: "Heinz Varieties, 57",
+      58: "Make Them Wait, 58", 59: "Brighton Line, 59", 60: "Five Dozen, 60",
+      61: "Bakers Bun, 61", 62: "Turn the Screw, 62", 63: "Tickle Me, 63",
+      64: "Red Raw, 64", 65: "Old Age Pension, 65", 66: "Clickety Click, 66",
+      67: "Stairway to Heaven, 67", 68: "Saving Grace, 68", 69: "Either Way Up, 69",
+      70: "Three Score and Ten, 70", 71: "Bang on the Drum, 71", 72: "Six Dozen, 72",
+      73: "Queen Bee, 73", 74: "Hit the Floor, 74", 75: "Strive and Strive, 75",
+      76: "Trombones, 76", 77: "Sunset Strip, 77", 78: "Heaven's Gate, 78",
+      79: "One More Time, 79", 80: "Eight and Blank, 80", 81: "Stop and Run, 81",
+      82: "Straight On Through, 82", 83: "Time for Tea, 83", 84: "Seven Dozen, 84",
+      85: "Staying Alive, 85", 86: "Between the Sticks, 86", 87: "Torquay in Devon, 87",
+      88: "Two Fat Ladies, 88", 89: "Nearly There, 89", 90: "Top of the Shop, 90"
     };
 
     const LINGO_TE = {
-      1: "ఒకటి — నంబర్ 1", 7: "లక్కీ సెవెన్ — 7", 10: "పది — నంబర్ 10",
-      11: "రెండు ఒకట్లు — 11", 22: "రెండు బాతులు — 22", 33: "మూడు మూడులు — 33",
-      45: "సగం పూర్తయింది — 45", 50: "అర్ధ సెంచరీ — 50", 75: "డైమండ్ జూబ్లీ — 75",
-      88: "రెండు ఎనిమిదులు — 88", 90: "చివరి నంబర్ — 90"
+      1: "మొదటి అడుగు — నంబర్ 1", 2: "ఒక చిన్న బాతు — నంబర్ 2", 3: "వేడి టీ కప్పు — నంబర్ 3",
+      4: "తలుపు తట్టండి — నంబర్ 4", 5: "పంచ పాండవులు — నంబర్ 5", 6: "సిక్సర్ కొట్టండి — నంబర్ 6",
+      7: "లక్కీ సెవెన్ — నంబర్ 7", 8: "అష్ట దిక్కులు — నంబర్ 8", 9: "నవరత్నాలు — నంబర్ 9",
+      10: "దశావతారాలు — నంబర్ 10", 11: "రెండు ఒకట్లు — నంబర్ 11", 12: "ఒక డజను — నంబర్ 12",
+      13: "పదమూడు — నంబర్ 13", 14: "పద్నాలుగు లోకాలు — నంబర్ 14", 15: "పంద్రాగస్టు — నంబర్ 15",
+      16: "పదహారణాల తెలుగు — నంబర్ 16", 17: "పదిహేడు — నంబర్ 17", 18: "ఓటు హక్కు వయసు — నంబర్ 18",
+      19: "పందొమ్మిది — నంబర్ 19", 20: "ట్వంటీ ట్వంటీ మ్యాచ్ — నంబర్ 20", 21: "ఇరవై ఒక్కటి — నంబర్ 21",
+      22: "రెండు చిన్న బాతులు — నంబర్ 22", 23: "ఇరవై మూడు — నంబర్ 23", 24: "రెండు డజన్లు — నంబర్ 24",
+      25: "సిల్వర్ జూబ్లీ — నంబర్ 25", 26: "రిపబ్లిక్ డే — నంబర్ 26", 27: "ఇరవై ఏడు — నంబర్ 27",
+      28: "ఇరవై ఎనిమిది — నంబర్ 28", 29: "ఇరవై తొమ్మిది — నంబర్ 29", 30: "ముప్పై రోజులు — నంబర్ 30",
+      31: "నెల చివరి రోజు — నంబర్ 31", 32: "ముప్పై రెండు — నంబర్ 32", 33: "మూడు మూడులు — నంబర్ 33",
+      34: "ముప్పై నాలుగు — నంబర్ 34", 35: "ముప్పై ఐదు — నంబర్ 35", 36: "మూడు డజన్లు — నంబర్ 36",
+      37: "ముప్పై ఏడు — నంబర్ 37", 38: "ముప్పై ఎనిమిది — నంబర్ 38", 39: "ముప్పై తొమ్మిది — నంబర్ 39",
+      40: "నలభై — నంబర్ 40", 41: "నలభై ఒక్కటి — నంబర్ 41", 42: "నలభై రెండు — నంబర్ 42",
+      43: "నలభై మూడు — నంబర్ 43", 44: "రెండు నాలుగులు — నంబర్ 44", 45: "సగం ఆట పూర్తయింది — నంబర్ 45",
+      46: "నలభై ఆరు — నంబర్ 46", 47: "స్వాతంత్ర్య సంవత్సరం — నంబర్ 47", 48: "నాలుగు డజన్లు — నంబర్ 48",
+      49: "నలభై తొమ్మిది — నంబర్ 49", 50: "హాఫ్ సెంచరీ — నంబర్ 50", 51: "యాభై ఒక్కటి — నంబర్ 51",
+      52: "పేకాట ముక్కలు — నంబర్ 52", 53: "యాభై మూడు — నంబర్ 53", 54: "యాభై నాలుగు — నంబర్ 54",
+      55: "రెండు ఐదులు — నంబర్ 55", 56: "యాభై ఆరు — నంబర్ 56", 57: "యాభై ఏడు — నంబర్ 57",
+      58: "యాభై ఎనిమిది — నంబర్ 58", 59: "యాభై తొమ్మిది — నంబర్ 59", 60: "అరవై — షష్టిపూర్తి — నంబర్ 60",
+      61: "అరవై ఒక్కటి — నంబర్ 61", 62: "అరవై రెండు — నంబర్ 62", 63: "అరవై మూడు — నంబర్ 63",
+      64: "చదరంగం గళ్ళు — నంబర్ 64", 65: "అరవై ఐదు — నంబర్ 65", 66: "రెండు ఆరులు — నంబర్ 66",
+      67: "అరవై ఏడు — నంబర్ 67", 68: "అరవై ఎనిమిది — నంబర్ 68", 69: "అరవై తొమ్మిది — నంబర్ 69",
+      70: "డెబ్బై — నంబర్ 70", 71: "డెబ్బై ఒక్కటి — నంబర్ 71", 72: "ఆరు డజన్లు — నంబర్ 72",
+      73: "డెబ్బై మూడు — నంబర్ 73", 74: "డెబ్బై నాలుగు — నంబర్ 74", 75: "డైమండ్ జూబ్లీ — నంబర్ 75",
+      76: "డెబ్బై ఆరు — నంబర్ 76", 77: "రెండు ఏడులు — నంబర్ 77", 78: "డెబ్బై ఎనిమిది — నంబర్ 78",
+      79: "డెబ్బై తొమ్మిది — నంబర్ 79", 80: "ఎనభై — నంబర్ 80", 81: "ఎనభై ఒక్కటి — నంబర్ 81",
+      82: "ఎనభై రెండు — నంబర్ 82", 83: "ఎనభై మూడు — నంబర్ 83", 84: "ఏడు డజన్లు — నంబర్ 84",
+      85: "ఎనభై ఐదు — నంబర్ 85", 86: "ఎనభై ఆరు — నంబర్ 86", 87: "ఎనభై ఏడు — నంబర్ 87",
+      88: "రెండు ఎనిమిదులు — నంబర్ 88", 89: "చివరికి దగ్గరలో — నంబర్ 89", 90: "ఆఖరి నంబర్ — నంబర్ 90"
     };
 
     const LINGO_HI = {
-      1: "सबसे पहला नंबर — 1", 7: "लकी सेवन — 7", 10: "दस का दम — 10",
-      11: "एक और एक ग्यारह — 11", 22: "दो बत्तखें — 22", 33: "दो तिग्गी — 33",
-      45: "आधा रास्ता — 45", 50: "अर्धशतक — 50", 75: "डायमंड जुबली — 75",
-      88: "दो मोटी महिलाएं — 88", 90: "सबसे आखिरी नंबर — 90"
+      1: "सबसे पहला कदम — नंबर 1", 2: "एक छोटी बत्तख — नंबर 2", 3: "गरम चाय की प्याली — नंबर 3",
+      4: "दरवाज़े पर दस्तक — नंबर 4", 5: "पांच पांडव — नंबर 5", 6: "छक्का लगाओ — नंबर 6",
+      7: "लकी सेवन — नंबर 7", 8: "आठ ठाठ — नंबर 8", 9: "नवरत्न — नंबर 9",
+      10: "दस का दम — नंबर 10", 11: "एक और एक ग्यारह — नंबर 11", 12: "एक दर्जन — नंबर 12",
+      13: "तेरा मेरा साथ — नंबर 13", 14: "चौदह भुवन — नंबर 14", 15: "पंद्रह अगस्त — नंबर 15",
+      16: "सोलह श्रृंगार — नंबर 16", 17: "सत्रह पे खतरा — नंबर 17", 18: "जवानी की दहलीज — नंबर 18",
+      19: "उन्नीस — नंबर 19", 20: "ट्वेंटी-ट्वेंटी — नंबर 20", 21: "इक्कीस — नंबर 21",
+      22: "दो छोटी बत्तखें — नंबर 22", 23: "तेईस — नंबर 23", 24: "दो दर्जन — नंबर 24",
+      25: "सिल्वर जुबली — नंबर 25", 26: "छब्बीस जनवरी — नंबर 26", 27: "सत्ताईस — नंबर 27",
+      28: "अट्ठाईस — नंबर 28", 29: "उनतीस — नंबर 29", 30: "तीस मार खां — नंबर 30",
+      31: "इकतीस — नंबर 31", 32: "बत्तीस दांत — नंबर 32", 33: "दो तिग्गी — नंबर 33",
+      34: "चौंतीस — नंबर 34", 35: "पैंतीस — नंबर 35", 36: "तीन दर्जन — नंबर 36",
+      37: "सैंतीस — नंबर 37", 38: "अड़तीस — नंबर 38", 39: "उनतालीस — नंबर 39",
+      40: "चालीस चोर — नंबर 40", 41: "इकतालीस — नंबर 41", 42: "बयालीस — नंबर 42",
+      43: "तैंतालीस — नंबर 43", 44: "दो चौके — नंबर 44", 45: "आधा सफर पूरा — नंबर 45",
+      46: "छियालीस — नंबर 46", 47: "आज़ादी का साल — नंबर 47", 48: "चार दर्जन — नंबर 48",
+      49: "उनचास — नंबर 49", 50: "अर्धशतक — नंबर 50", 51: "शुभ इक्यावन — नंबर 51",
+      52: "ताश के पत्ते — नंबर 52", 53: "तिरपन — नंबर 53", 54: "चौवन — नंबर 54",
+      55: "पचपन का बचपन — नंबर 55", 56: "छप्पन भोग — नंबर 56", 57: "सत्तावन — नंबर 57",
+      58: "अट्ठावन — नंबर 58", 59: "उनसठ — नंबर 59", 60: "पांच दर्जन — नंबर 60",
+      61: "इकसठ — नंबर 61", 62: "बासठ — नंबर 62", 63: "तिरसठ — नंबर 63",
+      64: "शतरंज के खाने — नंबर 64", 65: "पैंसठ — नंबर 65", 66: "दो छक्के — नंबर 66",
+      67: "सड़सठ — नंबर 67", 68: "अड़सठ — नंबर 68", 69: "उनहत्तर — नंबर 69",
+      70: "सत्तर — नंबर 70", 71: "इकहत्तर — नंबर 71", 72: "छह दर्जन — नंबर 72",
+      73: "तिहत्तर — नंबर 73", 74: "चौहत्तर — नंबर 74", 75: "डायमंड जुबली — नंबर 75",
+      76: "छिहत्तर — नंबर 76", 77: "दो सत्ते — नंबर 77", 78: "अठहत्तर — नंबर 78",
+      79: "उनासी — नंबर 79", 80: "अस्सी — नंबर 80", 81: "इक्यासी — नंबर 81",
+      82: "बयासी — नंबर 82", 83: "तिरासी — नंबर 83", 84: "सात दर्जन — नंबर 84",
+      85: "पचासी — नंबर 85", 86: "छियासी — नंबर 86", 87: "सत्तासी — नंबर 87",
+      88: "दो अट्ठे — नंबर 88", 89: "मंज़िल के करीब — नंबर 89", 90: "सबसे आखिरी नंबर — नंबर 90"
     };
 
     let currentLang = localStorage.getItem("digital_tambola_lang") || "en";
@@ -1502,8 +2008,11 @@
       document.getElementById("lblPlayers").textContent = tr.playersLabel;
       document.getElementById("lblCalled").textContent = tr.calledLabel;
       document.getElementById("lblTicket").textContent = tr.ticketLabel;
-      document.getElementById("drawBtn").textContent = tr.drawNumber;
+      document.getElementById("fiveBallDropBtn").textContent = tr.fiveBallDropBtn;
+      document.getElementById("fiveBallBadge").textContent = tr.fiveBallBadge;
+      document.getElementById("fiveBallSubText").textContent = tr.fiveBallSub;
       document.getElementById("autoBtn").textContent = autoTimer ? tr.autoDrawStop : tr.autoDrawStart;
+      document.getElementById("last5Label").textContent = tr.last5Label;
       document.getElementById("yourTicketHeading").textContent = tr.yourTicketHeading;
       document.getElementById("tapNumbersHint").textContent = tr.tapNumbersHint;
       document.getElementById("claimPrizesHeading").textContent = tr.claimPrizesHeading;
@@ -1521,6 +2030,7 @@
       document.getElementById("rulesGotItBtn").textContent = tr.gotItBtn;
 
       updateAudioButtonsUI();
+      updateAutoMarkButtonUI();
       updateClaimsUI();
       updateNewRoundButtonState();
       renderPlayersStrip();
@@ -1658,6 +2168,138 @@
     const HOST_BACKUP_KEY = "digital_tambola_host_backup_v4";
 
     let playerAudioEnabled = localStorage.getItem("digital_tambola_audio") !== "off";
+    let autoMarkEnabled = localStorage.getItem("digital_tambola_automark") === "on";
+    let drawIntervalMs = 5000;
+
+    function updateAutoMarkButtonUI() {
+      const tr = t();
+      const btn = document.getElementById("autoMarkBtn");
+      if (!btn) return;
+      if (autoMarkEnabled) {
+        btn.textContent = tr.autoMarkOn;
+        btn.classList.remove("automark-off");
+        btn.classList.add("automark-on");
+      } else {
+        btn.textContent = tr.autoMarkOff;
+        btn.classList.remove("automark-on");
+        btn.classList.add("automark-off");
+      }
+    }
+
+    function toggleAutoMark() {
+      autoMarkEnabled = !autoMarkEnabled;
+      localStorage.setItem("digital_tambola_automark", autoMarkEnabled ? "on" : "off");
+      updateAutoMarkButtonUI();
+      if (autoMarkEnabled) {
+        autoMarkMatchingNumbers(null);
+      }
+      showToast(autoMarkEnabled ? t().autoMarkOn : t().autoMarkOff);
+    }
+
+    function autoMarkMatchingNumbers(latestNum = null) {
+      if (!autoMarkEnabled || !Array.isArray(ticket) || ticket.length !== 3) return;
+      let changed = false;
+      let newlyMarked = null;
+      for (let r = 0; r < 3; r++) {
+        for (let c = 0; c < 9; c++) {
+          const val = ticket[r][c];
+          if (val > 0 && calledNumbers.includes(val) && !markedSet.has(val)) {
+            markedSet.add(val);
+            changed = true;
+            if (val === latestNum) newlyMarked = val;
+          }
+        }
+      }
+      if (changed) {
+        saveLocalSession();
+        renderTicket(newlyMarked);
+      }
+    }
+
+    function renderLast5Strip() {
+      const container = document.getElementById("last5Balls");
+      if (!container) return;
+      if (!Array.isArray(calledNumbers) || calledNumbers.length === 0) {
+        container.innerHTML = '<span class="l5-ball">-</span>';
+        return;
+      }
+      const recent = calledNumbers.slice(-5).reverse();
+      container.innerHTML = recent.map((num, idx) =>
+        `<span class="l5-ball ${idx === 0 ? "latest" : ""}">${num}</span>`
+      ).join("");
+    }
+
+    function changeDrawSpeed() {
+      const sel = document.getElementById("drawSpeedSelect");
+      if (!sel) return;
+      drawIntervalMs = parseInt(sel.value, 10) || 5000;
+      if (autoTimer) {
+        clearInterval(autoTimer);
+        autoTimer = setInterval(autoDrawStep, drawIntervalMs);
+      }
+      showToast(`⏱️ ${sel.options[sel.selectedIndex].text}`);
+    }
+
+    /* Confetti Celebration Burst on Prize Wins */
+    let activeConfettiAnimId = null;
+    function launchConfettiBurst(isGrand = false) {
+      if (activeConfettiAnimId) {
+        cancelAnimationFrame(activeConfettiAnimId);
+        activeConfettiAnimId = null;
+      }
+      const canvas = document.getElementById("confettiCanvas");
+      if (!canvas) return;
+      const ctx = canvas.getContext("2d");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      const palette = ["#f59e0b", "#ef4444", "#10b981", "#3b82f6", "#ec4899", "#fde047"];
+      const count = isGrand ? 160 : 85;
+      const pieces = Array.from({ length: count }, () => ({
+        x: canvas.width * (0.2 + Math.random() * 0.6),
+        y: canvas.height * 0.35,
+        vx: (Math.random() - 0.5) * 14,
+        vy: -(Math.random() * 11 + 4),
+        w: Math.random() * 9 + 5,
+        h: Math.random() * 5 + 3,
+        color: palette[Math.floor(Math.random() * palette.length)],
+        rot: Math.random() * Math.PI * 2,
+        vrot: (Math.random() - 0.5) * 0.25,
+        life: 0,
+        maxLife: isGrand ? 150 : 105
+      }));
+
+      let animId;
+      function step() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        let alive = 0;
+        for (const p of pieces) {
+          p.life++;
+          if (p.life > p.maxLife) continue;
+          alive++;
+          p.vy += 0.34;
+          p.vx *= 0.985;
+          p.x += p.vx;
+          p.y += p.vy;
+          p.rot += p.vrot;
+
+          ctx.save();
+          ctx.translate(p.x, p.y);
+          ctx.rotate(p.rot);
+          ctx.globalAlpha = Math.max(0, 1 - p.life / p.maxLife);
+          ctx.fillStyle = p.color;
+          ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+          ctx.restore();
+        }
+        if (alive > 0) {
+          activeConfettiAnimId = requestAnimationFrame(step);
+        } else {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          cancelAnimationFrame(activeConfettiAnimId); activeConfettiAnimId = null;
+        }
+      }
+      requestAnimationFrame(step);
+    }
 
     function updateAudioButtonsUI() {
       const tr = t();
@@ -2074,7 +2716,7 @@
       const tr = t();
       const resetBtn = document.getElementById("resetBtn");
       const hintEl = document.getElementById("newRoundHint");
-      const drawBtn = document.getElementById("drawBtn");
+      const fiveBtn = document.getElementById("fiveBallDropBtn");
       const autoBtn = document.getElementById("autoBtn");
       if (!resetBtn) return;
 
@@ -2083,13 +2725,13 @@
         resetBtn.disabled = false;
         resetBtn.textContent = tr.newRoundUnlocked;
         if (hintEl) hintEl.textContent = tr.hintReadyNewRound;
-        if (drawBtn) drawBtn.disabled = true;
+        if (fiveBtn) fiveBtn.disabled = true;
         if (autoBtn) autoBtn.disabled = true;
       } else {
         resetBtn.disabled = true;
         resetBtn.textContent = tr.newRoundLocked;
         if (hintEl) hintEl.textContent = tr.hintCompleteFH;
-        if (drawBtn) drawBtn.disabled = false;
+        if (fiveBtn) fiveBtn.disabled = false;
         if (autoBtn) autoBtn.disabled = false;
       }
     }
@@ -2113,6 +2755,8 @@
 
       const modalTop3El = document.getElementById("modalTop3List");
       const modalNewRoundBtn = document.getElementById("modalNewRoundBtn");
+      const modalContinueBtn = document.getElementById("modalContinueBtn");
+      if (modalContinueBtn) modalContinueBtn.textContent = tr.continueBtn;
 
       if (prizeKey === "fullHouse") {
         if (Array.isArray(top3List) && top3List.length > 0) {
@@ -2128,6 +2772,7 @@
           modalTop3El.classList.add("active");
         }
         if (modalNewRoundBtn) {
+          modalNewRoundBtn.textContent = tr.startNewRoundBtn;
           modalNewRoundBtn.style.display = isHost ? "inline-flex" : "none";
         }
       } else {
@@ -2139,6 +2784,7 @@
       }
 
       modal.classList.add("active");
+      launchConfettiBurst(prizeKey === "fullHouse");
 
       speakText(tr.sayWinner(winnerName, prizeLabel));
 
@@ -2260,11 +2906,27 @@
       `;
     }
 
+    function updateTicketProgressUI() {
+      const tr = t();
+      const count = markedSet.size;
+      const pct = Math.min(100, Math.round((count / 15) * 100));
+      const lbl = document.getElementById("ticketProgressLabel");
+      const fill = document.getElementById("ticketProgressFill");
+      const pctEl = document.getElementById("ticketPercentLabel");
+      if (lbl) {
+        lbl.innerHTML = `${tr.ticketProgressPrefix || "🎯 Marked:"} <strong>${count}</strong>/15`;
+      }
+      if (fill) fill.style.width = `${pct}%`;
+      if (pctEl) pctEl.textContent = `${pct}%`;
+    }
+
     function renderTicket(newlyMarkedNum = null) {
       const serialEl = document.getElementById("ticketSerialBadge");
       if (serialEl) {
         serialEl.textContent = `#T-${String(ticketSerial).padStart(2, "0")}`;
       }
+
+      updateTicketProgressUI();
 
       const el = document.getElementById("ticketGrid");
       el.innerHTML = "";
@@ -2278,7 +2940,8 @@
             cell.className = "cell empty";
           } else {
             const isMarked = markedSet.has(val);
-            cell.className = "cell" + (isMarked ? " marked" : "");
+            const isCalledUnmarked = !isMarked && calledNumbers.includes(val);
+            cell.className = "cell" + (isMarked ? " marked" : "") + (isCalledUnmarked ? " called-hint" : "");
             cell.innerHTML = `<span>${val}</span>` + (isMarked ? createPenCrossSVG(val === newlyMarkedNum) : "");
             cell.onclick = () => toggleMark(val);
           }
@@ -2553,29 +3216,106 @@
       });
     }
 
-    function drawNextNumber() {
+
+    /* ==========================================================================
+       5-BALL DROP FROM TOP -> 1 NUMBER SELECTED & DRAWN
+       ========================================================================== */
+    function startFiveBallDrop(fromAutoDraw = false) {
       if (!isHost || drawLock) return;
       if (claims.fullHouse || calledNumbers.length >= 90) {
         if (autoTimer) toggleAutoDraw();
         return;
       }
 
-      drawLock = true;
       const available = [];
       for (let i = 1; i <= 90; i++) {
         if (!calledNumbers.includes(i)) available.push(i);
       }
-      const next = available[Math.floor(Math.random() * available.length)];
-      calledNumbers.push(next);
+      if (available.length === 0) return;
 
+      drawLock = true;
+      if (!fromAutoDraw && autoTimer) toggleAutoDraw();
+
+      const shuffled = [...available].sort(() => Math.random() - 0.5);
+      const droppedFive = shuffled.slice(0, Math.min(5, shuffled.length));
+      const pickedOne = droppedFive[Math.floor(Math.random() * droppedFive.length)];
+
+      calledNumbers.push(pickedOne);
       saveLocalSession();
-      applyNewNumber(next);
-      broadcast({ type: "NUMBER_DRAWN", number: next, calledNumbers });
 
-      if (calledNumbers.length >= 90 && autoTimer) {
-        toggleAutoDraw();
+      broadcast({
+        type: "FIVE_BALL_DROP",
+        droppedFive,
+        number: pickedOne,
+        calledNumbers
+      });
+
+      runFiveBallDropVisual(droppedFive, pickedOne, () => {
+        applyNewNumber(pickedOne);
+        if (calledNumbers.length >= 90 && autoTimer) {
+          toggleAutoDraw();
+        }
+        setTimeout(() => { drawLock = false; }, 350);
+      });
+    }
+
+    function runFiveBallDropVisual(droppedFive, pickedOne, onComplete) {
+      const modal = document.getElementById("fiveBallDropModal");
+      const rowEl = document.getElementById("fiveBallsRow");
+      const resultEl = document.getElementById("fiveBallResultText");
+
+      resultEl.textContent = "";
+      rowEl.innerHTML = droppedFive.map((num, idx) =>
+        `<div class="drop-ball" id="drop-b-${idx}" data-num="${num}">${num}</div>`
+      ).join("");
+
+      modal.classList.add("active");
+
+      // Stagger 5 balls dropping from the top chute
+      droppedFive.forEach((_, idx) => {
+        setTimeout(() => {
+          const bEl = document.getElementById(`drop-b-${idx}`);
+          if (bEl) bEl.classList.add("falling");
+        }, idx * 140);
+      });
+
+      // Highlight the 1 chosen ball after all 5 balls land
+      const revealDelay = droppedFive.length * 140 + 750;
+      setTimeout(() => {
+        droppedFive.forEach((num, idx) => {
+          const bEl = document.getElementById(`drop-b-${idx}`);
+          if (!bEl) return;
+          if (num === pickedOne) {
+            bEl.classList.add("picked");
+          } else {
+            bEl.classList.add("eliminated");
+          }
+        });
+        resultEl.textContent = `🎯 #${pickedOne}`;
+      }, revealDelay);
+
+      setTimeout(() => {
+        modal.classList.remove("active");
+        if (typeof onComplete === "function") onComplete();
+      }, revealDelay + 1100);
+    }
+
+
+
+    function autoDrawStep() {
+      if (!isHost) {
+        if (autoTimer) {
+          clearInterval(autoTimer);
+          autoTimer = null;
+        }
+        return;
       }
-      setTimeout(() => { drawLock = false; }, 350);
+      if (claims.fullHouse || calledNumbers.length >= 90) {
+        if (autoTimer) toggleAutoDraw();
+        return;
+      }
+      if (drawLock) return;
+      startFiveBallDrop(true);
     }
 
     function toggleAutoDraw() {
@@ -2584,13 +3324,16 @@
       if (autoTimer) {
         clearInterval(autoTimer);
         autoTimer = null;
-        btn.textContent = tr.autoDrawStart;
+        if (btn) btn.textContent = tr.autoDrawStart;
       } else {
-        if (claims.fullHouse) return;
-        drawNextNumber();
+        if (!isHost) return showToast("👑 Only Host can start Auto Draw");
+        if (claims.fullHouse) return showToast(tr.hintReadyNewRound);
+        if (calledNumbers.length >= 90) return;
+        if (btn) btn.textContent = tr.autoDrawStop;
+        autoDrawStep();
         if (calledNumbers.length < 90 && !claims.fullHouse) {
-          autoTimer = setInterval(drawNextNumber, 5000);
-          btn.textContent = tr.autoDrawStop;
+          clearInterval(autoTimer);
+          autoTimer = setInterval(autoDrawStep, drawIntervalMs);
         }
       }
     }
@@ -2641,6 +3384,8 @@
     function applyNewNumber(num) {
       document.getElementById(`b-${num}`)?.classList.add("called");
       document.getElementById("calledCount").textContent = calledNumbers.length;
+      renderLast5Strip();
+      autoMarkMatchingNumbers(num);
       showDrawPopup(num);
     }
 
@@ -2653,6 +3398,8 @@
         }
       }
       document.getElementById("calledCount").textContent = calledNumbers.length;
+      renderLast5Strip();
+      autoMarkMatchingNumbers(null);
       updateClaimsUI();
     }
 
@@ -2858,6 +3605,11 @@
       } else if (data.type === "ROSTER_UPDATE") {
         playersRoster = data.playersRoster || playersRoster;
         renderPlayersStrip();
+      } else if (data.type === "FIVE_BALL_DROP") {
+        calledNumbers = data.calledNumbers;
+        runFiveBallDropVisual(data.droppedFive || [data.number], data.number, () => {
+          applyNewNumber(data.number);
+        });
       } else if (data.type === "NUMBER_DRAWN") {
         calledNumbers = data.calledNumbers;
         applyNewNumber(data.number);
