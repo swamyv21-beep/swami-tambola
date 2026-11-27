@@ -6,33 +6,33 @@
   <meta name="google-site-verification" content="aFE2QqW6MiMrzI0cv3YnVj39HjHdBHcoKmi05MjVGU0" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2736631684006337" crossorigin="anonymous"></script>
 
-  <title>Digital Tambola (Housie) V3 — Live Multiplayer Online Party Game</title>
-  <meta name="description" content="Play Digital Tambola (Housie / Bingo 90) V3 online free with friends & family. Multi-ticket play, Dark Mode, 2nd Full House, Series Leaderboard, Private Room PIN, Spectator Mode, PNG Ticket Download & Telugu/Hindi/English Voice." />
-  <meta name="keywords" content="Digital Tambola, Online Housie, Tambola Multiplayer, Play Tambola Free, Housie Ticket Generator, Telugu Tambola, Hindi Tambola, Dark Mode Tambola" />
+  <title>Digital Tambola (Housie) V4 — Live Multiplayer, AI Bots &amp; Party Pot</title>
+  <meta name="description" content="Play Digital Tambola (Housie / Bingo 90) V4 online free with friends or AI Bots. Includes Dark Mode, Kitty Party Pot Split, Live Chat, Manual Host Verify, Bamboo/Temperature/King-Queen prizes, Winners PNG &amp; Telugu/Hindi/English Voice." />
+  <meta name="keywords" content="Digital Tambola, Online Housie, Tambola Multiplayer, Play Tambola Free, Tambola AI Bots, Kitty Party Tambola, Telugu Tambola, Hindi Tambola" />
   <meta name="author" content="Digital Swami" />
   <meta name="theme-color" content="#0f172a" />
   <link id="dynamicManifest" rel="manifest" href="" />
 
-  <meta property="og:title" content="Digital Tambola (Housie) V3 — Live Multiplayer" />
-  <meta property="og:description" content="Play Tambola online with Dark Mode, Series Leaderboard, 1-3 Tickets, Room PIN, Spectator Mode, PNG Ticket Export & Multilingual Voice." />
+  <meta property="og:title" content="Digital Tambola (Housie) V4 — Live Multiplayer &amp; AI Bots" />
+  <meta property="og:description" content="Play Tambola online with friends or AI Bots, Kitty Party Pot Split, Live Chat, Dark Mode, Room PIN, Spectator Mode &amp; Winners Card PNG." />
   <meta property="og:type" content="website" />
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "Digital Tambola (Housie) V3",
+    "name": "Digital Tambola (Housie) V4",
     "applicationCategory": "GameApplication",
     "operatingSystem": "Web",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
     "featureList": [
-      "Live P2P Multiplayer",
+      "Live P2P Multiplayer & Solo AI Bots",
+      "Kitty Party Pot & Payout Calculator",
+      "In-Room Live Chat & Quick Callouts",
+      "Optional Host Manual Claim Verification",
+      "Bamboo, Temperature & King-Queen Prizes",
       "Dark Mode & Paper Mode",
-      "Multi-Ticket (1 to 3 Tickets)",
-      "Series Cumulative Leaderboard",
-      "2nd Full House Option",
-      "Private Room PIN & Spectator Mode",
-      "Downloadable PNG Ticket Card",
+      "Downloadable Ticket & Winners Podium PNG",
       "English, Telugu & Hindi Voice Caller"
     ]
   }
@@ -44,13 +44,13 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How do I play Digital Tambola V3 with friends?",
-        "acceptedAnswer": { "@type": "Answer", "text": "One player clicks Host Room (optionally setting a 4-digit PIN) and shares the Room Code, QR Code, or WhatsApp link. Friends enter the code and join live with 1 to 3 unique tickets or in Spectator Mode." }
+        "name": "How do I play Digital Tambola V4 with friends or solo?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Host a room to play live with friends via Room Code/QR, or add 2-4 AI Bots for instant solo practice anytime." }
       },
       {
         "@type": "Question",
-        "name": "What is new in V3?",
-        "acceptedAnswer": { "@type": "Answer", "text": "V3 adds Dark Mode, Series Cumulative Leaderboard, 2nd Full House option, 10s Bogey Cooldown Lockout, Private Room PIN, Spectator Mode for late joiners, PNG Ticket Card download, and Master Board draw-order highlight." }
+        "name": "What is new in V4?",
+        "acceptedAnswer": { "@type": "Answer", "text": "V4 adds Solo AI Bots, Kitty Party Pot & Payout Calculator, In-Room Live Chat, Host Manual Claim Verify Mode, Bamboo/Temperature/King-Queen prizes, Winners Podium PNG, Haptic Vibration, Screen Wake Lock, and Full Draw Order Log." }
       }
     ]
   }
@@ -105,10 +105,7 @@
       transition: background 0.25s ease, color 0.25s ease;
     }
 
-    .app-shell {
-      max-width: 980px;
-      margin: 0 auto;
-    }
+    .app-shell { max-width: 1000px; margin: 0 auto; }
 
     .paper-panel {
       position: relative;
@@ -155,16 +152,12 @@
       margin-bottom: 12px;
     }
     .top-header h1 {
-      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      font-size: clamp(1.45rem, 4vw, 2.2rem);
       color: #fde68a;
       text-shadow: 0 3px 10px rgba(0, 0, 0, 0.45);
       margin-bottom: 4px;
     }
-    .top-header p {
-      margin: 0;
-      font-size: 0.88rem;
-      color: #cbd5e1;
-    }
+    .top-header p { margin: 0; font-size: 0.86rem; color: #cbd5e1; }
 
     .top-action-bar {
       display: flex;
@@ -193,7 +186,7 @@
       align-items: center;
       justify-content: center;
       gap: 6px;
-      transition: transform 0.12s ease, opacity 0.15s ease, box-shadow 0.15s ease;
+      transition: transform 0.12s ease, opacity 0.15s ease;
       font-family: inherit;
     }
     .btn:active { transform: scale(0.96); }
@@ -208,14 +201,14 @@
     .btn-ghost { background: var(--paper-2); color: var(--ink); border: 1px solid var(--paper-border); }
     .btn-dark { background: #334155; color: #f8fafc; border: 1px solid #475569; }
 
-    input[type="text"], input[type="password"], select {
+    input[type="text"], input[type="password"], input[type="number"], select {
       width: 100%;
-      padding: 10px 12px;
+      padding: 9px 11px;
       border-radius: 10px;
       border: 2px solid var(--paper-border);
       background: var(--input-bg);
       color: var(--ink);
-      font-size: 0.94rem;
+      font-size: 0.92rem;
       font-weight: 600;
       outline: none;
       transition: border-color 0.2s;
@@ -224,16 +217,16 @@
 
     .grid-2 {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
       gap: 14px;
     }
 
     .field-label {
       display: block;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 700;
       color: var(--muted);
-      margin-bottom: 5px;
+      margin-bottom: 4px;
       margin-top: 8px;
     }
 
@@ -243,16 +236,17 @@
       gap: 4px;
       padding: 4px 10px;
       border-radius: 999px;
-      font-size: 0.76rem;
+      font-size: 0.75rem;
       font-weight: 800;
       background: var(--paper-2);
       border: 1px solid var(--paper-border);
       color: var(--ink);
     }
     .badge-live { background: #dcfce7; color: #166534; border-color: #86efac; }
+    .badge-pot { background: #fef3c7; color: #92400e; border-color: #fcd34d; }
     body.dark-mode .badge-live { background: #064e3b; color: #6ee7b7; border-color: #059669; }
+    body.dark-mode .badge-pot { background: #451a03; color: #fde68a; border-color: #d97706; }
 
-    /* Status & Host Controls */
     .status-bar {
       display: flex;
       flex-wrap: wrap;
@@ -385,7 +379,7 @@
       transition: width 0.25s ease;
     }
 
-    /* Claims Zone & Draw Popup Overlay (Positioned right over Claim Stickers) */
+    /* Claims Zone & Draw Popup Overlay */
     .claims-popup-zone {
       position: relative;
       margin-top: 12px;
@@ -404,13 +398,13 @@
       border-radius: 12px;
       border: none;
       font-weight: 800;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       color: #fff;
       background: linear-gradient(135deg, #2563eb, #1d4ed8);
       box-shadow: 0 3px 0 #1e40af;
       cursor: pointer;
       text-align: center;
-      transition: transform 0.12s, filter 0.2s;
+      transition: transform 0.12s;
     }
     .claim-btn:active { transform: scale(0.96); }
     .claim-btn.claimed {
@@ -434,7 +428,6 @@
       to { transform: scale(1.03); }
     }
 
-    /* Draw Popup placed inside .claims-popup-zone */
     .draw-popup {
       position: absolute;
       inset: 6px;
@@ -498,7 +491,6 @@
       color: #fff;
       border-color: #b45309;
       cursor: pointer;
-      box-shadow: 0 2px 6px rgba(217, 119, 6, 0.35);
     }
     .mb-cell.latest {
       background: linear-gradient(135deg, #e11d48, #be123c);
@@ -507,13 +499,43 @@
       z-index: 2;
     }
 
-    /* Emoji Bar & Floating Reactions */
-    .emoji-bar {
+    /* Draw Log & Chat */
+    .draw-log-strip {
       display: flex;
-      gap: 6px;
       flex-wrap: wrap;
+      gap: 5px;
+      max-height: 120px;
+      overflow-y: auto;
+      padding: 6px;
+      background: var(--paper-2);
+      border-radius: 10px;
+      border: 1px solid var(--paper-border);
       margin-top: 8px;
     }
+    .log-chip {
+      font-size: 0.74rem;
+      font-weight: 700;
+      padding: 3px 7px;
+      border-radius: 7px;
+      background: var(--input-bg);
+      border: 1px solid var(--paper-border);
+    }
+
+    .chat-box {
+      max-height: 160px;
+      overflow-y: auto;
+      background: var(--paper-2);
+      border: 1px solid var(--paper-border);
+      border-radius: 12px;
+      padding: 8px;
+      margin-bottom: 8px;
+      font-size: 0.82rem;
+    }
+    .chat-line { margin-bottom: 5px; line-height: 1.35; }
+    .chat-line strong { color: var(--blue); }
+    body.dark-mode .chat-line strong { color: #60a5fa; }
+
+    .emoji-bar { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
     .emoji-btn {
       border: 1px solid var(--paper-border);
       background: var(--paper-2);
@@ -521,9 +543,7 @@
       padding: 5px 10px;
       font-size: 1rem;
       cursor: pointer;
-      transition: transform 0.12s;
     }
-    .emoji-btn:active { transform: scale(1.2); }
 
     .floating-reaction-layer {
       position: fixed;
@@ -553,11 +573,10 @@
       100% { opacity: 0; transform: translateY(-28px); }
     }
 
-    /* Modals & Tables */
     .modal-backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(2, 6, 23, 0.72);
+      background: rgba(2, 6, 23, 0.75);
       display: none;
       align-items: center;
       justify-content: center;
@@ -570,9 +589,11 @@
       color: var(--ink);
       border: 2px solid var(--paper-border);
       border-radius: 18px;
-      max-width: 440px;
+      max-width: 480px;
       width: 100%;
       padding: 18px;
+      max-height: 90vh;
+      overflow-y: auto;
       box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
     }
 
@@ -585,7 +606,7 @@
       background: var(--paper-2);
       border: 1px solid var(--paper-border);
       margin-bottom: 6px;
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       font-weight: 700;
     }
 
@@ -597,7 +618,7 @@
       border-radius: 9px;
       background: var(--paper-2);
       border: 1px solid var(--paper-border);
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       font-weight: 700;
       cursor: pointer;
     }
@@ -630,15 +651,8 @@
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
     }
     .toast-banner.show { display: block; }
-
     .hidden { display: none !important; }
-    .seo-footer {
-      color: #94a3b8;
-      font-size: 0.8rem;
-      text-align: center;
-      margin-top: 18px;
-      line-height: 1.5;
-    }
+    .seo-footer { color: #94a3b8; font-size: 0.8rem; text-align: center; margin-top: 18px; line-height: 1.5; }
   </style>
 </head>
 <body>
@@ -647,8 +661,8 @@
 
   <div class="app-shell">
     <header class="top-header">
-      <h1>🎱 Digital Tambola (Housie) V3</h1>
-      <p>Live P2P Multiplayer • Series Leaderboard • Dark Mode • PNG Tickets</p>
+      <h1>🎱 Digital Tambola (Housie) V4</h1>
+      <p>Live Multiplayer • AI Bots • Party Pot Split • Live Chat • Dark Mode</p>
     </header>
 
     <!-- Top Global Bar -->
@@ -666,6 +680,8 @@
         <button id="voiceToggleBtn" class="btn btn-sm btn-ghost" type="button">🔊 Voice: ON</button>
         <button id="speedToggleBtn" class="btn btn-sm btn-ghost" type="button">⚡ 1x</button>
         <button id="soundToggleBtn" class="btn btn-sm btn-ghost" type="button">🔔 SFX: ON</button>
+        <button id="vibrateToggleBtn" class="btn btn-sm btn-ghost" type="button">📳 Haptic: ON</button>
+        <button id="wakeLockBtn" class="btn btn-sm btn-ghost" type="button">📱 Wake: OFF</button>
       </div>
     </nav>
 
@@ -695,10 +711,30 @@
               </div>
             </div>
 
+            <div class="grid-2" style="gap:8px; margin-top:4px;">
+              <div>
+                <label class="field-label" for="hostBotsSelect">🤖 AI Bots (Solo/Mix)</label>
+                <select id="hostBotsSelect">
+                  <option value="0">0 Bots (Friends Only)</option>
+                  <option value="2">2 AI Bots</option>
+                  <option value="3">3 AI Bots</option>
+                  <option value="4">4 AI Bots</option>
+                </select>
+              </div>
+              <div>
+                <label class="field-label" for="hostTicketPrice">💰 Ticket Price (₹ / Coins)</label>
+                <input id="hostTicketPrice" type="number" min="0" max="10000" value="0" placeholder="0 = Points Only" />
+              </div>
+            </div>
+
             <div style="margin-top:10px; display:flex; flex-direction:column; gap:6px;">
               <label style="font-size:0.8rem; font-weight:700; display:flex; align-items:center; gap:6px; cursor:pointer;">
                 <input type="checkbox" id="hostBogeyLockChk" />
                 <span>🚫 10s Bogey Cooldown on False Claim</span>
+              </label>
+              <label style="font-size:0.8rem; font-weight:700; display:flex; align-items:center; gap:6px; cursor:pointer;">
+                <input type="checkbox" id="hostManualVerifyChk" />
+                <span>⚖️ Manual Host Claim Verify Mode</span>
               </label>
             </div>
 
@@ -707,9 +743,10 @@
               <div id="hostPrizeConfig" style="display:flex; flex-wrap:wrap; gap:6px;"></div>
             </div>
 
-            <button id="hostBtn" class="btn btn-primary" style="width:100%; margin-top:14px;" type="button">
-              🚀 Create & Host Room
-            </button>
+            <div class="grid-2" style="gap:8px; margin-top:14px;">
+              <button id="hostBtn" class="btn btn-primary" type="button">🚀 Host Live Room</button>
+              <button id="soloBotsBtn" class="btn btn-purple" type="button">🤖 Quick Solo vs Bots</button>
+            </div>
             <button id="resumeHostBtn" class="btn btn-amber hidden" style="width:100%; margin-top:8px;" type="button">
               ♻️ Resume Previous Host Room
             </button>
@@ -770,6 +807,7 @@
               <span class="badge badge-live" id="roomBadge">Room: ----</span>
               <span class="badge" id="roundBadge">Round 1</span>
               <span class="badge" id="playersBadge">👥 1</span>
+              <span class="badge badge-pot hidden" id="potBadge">💰 Pot: ₹0</span>
               <span class="badge hidden" id="pinBadge">🔒 PIN</span>
             </div>
             <div class="pill-group">
@@ -800,9 +838,9 @@
               <button id="drawBtn" class="btn btn-primary" type="button">🎲 Draw Number</button>
               <button id="autoDrawBtn" class="btn btn-purple" type="button">⏱️ Auto: OFF</button>
               <select id="autoSpeedSelect" style="width:auto; padding:7px 10px; font-size:0.8rem;" aria-label="Auto draw interval">
-                <option value="4000">4s</option>
-                <option value="6000" selected>6s</option>
-                <option value="9000">9s</option>
+                <option value="3500">3.5s</option>
+                <option value="5500" selected>5.5s</option>
+                <option value="8500">8.5s</option>
               </select>
               <button id="newRoundBtn" class="btn btn-success" type="button" disabled>🔄 New Round</button>
             </div>
@@ -880,7 +918,7 @@
 
         <!-- Master Board & Leaderboards -->
         <div class="grid-2">
-          <!-- Master Board -->
+          <!-- Master Board + Draw Log -->
           <div class="paper-panel">
             <div class="tape tape-left"></div>
             <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; flex-wrap:wrap;">
@@ -888,19 +926,45 @@
               <span id="boardOrderToast" class="badge" style="min-height:24px;">Tap called # for draw order</span>
             </div>
             <div id="masterBoard" class="master-board"></div>
+
+            <details style="margin-top:12px;">
+              <summary style="cursor:pointer; font-weight:800; font-size:0.85rem;">📜 Full Draw Order Log</summary>
+              <div id="drawLogStrip" class="draw-log-strip">No numbers called yet.</div>
+            </details>
           </div>
 
-          <!-- Leaderboards & Players -->
+          <!-- Leaderboards, Payouts & Chat -->
           <div class="paper-panel">
             <div class="tape tape-right"></div>
-            <h3>🏅 Series Leaderboard (All Rounds)</h3>
-            <div id="seriesLeaderboardPanel"></div>
+            <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; flex-wrap:wrap;">
+              <h3 style="margin:0;">🏅 Series Leaderboard</h3>
+              <button id="shareWinnersPngBtn" class="btn btn-sm btn-amber" type="button">🏅 Winners PNG</button>
+            </div>
+            <div id="seriesLeaderboardPanel" style="margin-top:8px;"></div>
 
-            <h3 style="margin-top:14px;">⚡ Round Top 3 & Winners</h3>
+            <h3 style="margin-top:12px;">⚡ Round Winners &amp; Pot Split</h3>
             <div id="roundLeaderboardPanel"></div>
 
-            <h3 style="margin-top:14px;">👥 Players in Room</h3>
+            <h3 style="margin-top:12px;">👥 Players in Room</h3>
             <div id="playersListPanel" style="display:flex; flex-wrap:wrap; gap:6px;"></div>
+
+            <!-- In-Room Live Chat -->
+            <div style="margin-top:14px; padding-top:10px; border-top:1.5px dashed var(--paper-border);">
+              <h3 style="margin:0 0 6px;">💬 Room Chat</h3>
+              <div id="chatBox" class="chat-box">
+                <div style="color:var(--muted);">Say hi or cheer your friends!</div>
+              </div>
+              <div class="pill-group" style="margin-bottom:6px;">
+                <button class="btn btn-sm btn-ghost quick-chat-btn" data-msg="🔥 1 to go!" type="button">🔥 1 to go!</button>
+                <button class="btn btn-sm btn-ghost quick-chat-btn" data-msg="⏳ Wait for me!" type="button">⏳ Wait!</button>
+                <button class="btn btn-sm btn-ghost quick-chat-btn" data-msg="🎉 Congrats!" type="button">🎉 Congrats!</button>
+              </div>
+              <div style="display:flex; gap:6px;">
+                <input id="chatInput" type="text" maxlength="80" placeholder="Type message..." />
+                <button id="sendChatBtn" class="btn btn-primary btn-sm" type="button">Send</button>
+              </div>
+            </div>
+
             <div class="watermark">Digital Swami</div>
           </div>
         </div>
@@ -908,7 +972,7 @@
     </main>
 
     <footer class="seo-footer">
-      Digital Tambola (Housie) V3 • Free Online Multiplayer Bingo 90 Party Game by Digital Swami.
+      Digital Tambola (Housie) V4 • Free Online Multiplayer, AI Bots &amp; Kitty Party Game by Digital Swami.
     </footer>
   </div>
 
@@ -930,6 +994,19 @@
     </div>
   </div>
 
+  <!-- Host Manual Claim Verify Modal -->
+  <div id="verifyModal" class="modal-backdrop">
+    <div class="modal-card">
+      <h3>⚖️ Verify Claim Request</h3>
+      <div id="verifyMeta" style="font-size:0.88rem; font-weight:700; margin-bottom:10px;"></div>
+      <div id="verifyTicketsPreview"></div>
+      <div class="pill-group" style="justify-content:flex-end; margin-top:12px;">
+        <button id="verifyRejectBtn" class="btn btn-danger" type="button">❌ Reject (Bogey)</button>
+        <button id="verifyApproveBtn" class="btn btn-success" type="button">✅ Approve Win</button>
+      </div>
+    </div>
+  </div>
+
   <script>
     (() => {
       "use strict";
@@ -937,11 +1014,14 @@
       /* ================= CONSTANTS & I18N ================= */
       const ALL_PRIZE_KEYS = [
         "jaldi5", "early7", "topLine", "midLine", "botLine",
-        "corners", "breakfast", "lunch", "dinner", "fullHouse", "fullHouse2"
+        "corners", "breakfast", "lunch", "dinner",
+        "bamboo", "temperature", "kingQueen",
+        "fullHouse", "fullHouse2"
       ];
       const DEFAULT_ENABLED_PRIZES = ["jaldi5", "topLine", "midLine", "botLine", "corners", "fullHouse"];
       const PRIZE_POINTS = {
         fullHouse: 100, fullHouse2: 70, corners: 25,
+        bamboo: 25, temperature: 22, kingQueen: 22,
         topLine: 20, midLine: 20, botLine: 20,
         breakfast: 18, lunch: 18, dinner: 18,
         early7: 16, jaldi5: 15
@@ -958,6 +1038,7 @@
             topLine: "Top Line", midLine: "Middle Line", botLine: "Bottom Line",
             corners: "Four Corners", breakfast: "Breakfast (1-30)",
             lunch: "Lunch (31-60)", dinner: "Dinner (61-90)",
+            bamboo: "Bamboo", temperature: "Temperature", kingQueen: "King & Queen",
             fullHouse: "Full House", fullHouse2: "2nd Full House"
           }
         },
@@ -971,6 +1052,7 @@
             topLine: "టాప్ లైన్", midLine: "మిడిల్ లైన్", botLine: "బాటమ్ లైన్",
             corners: "ఫోర్ కార్నర్స్", breakfast: "బ్రేక్‌ఫాస్ట్ (1-30)",
             lunch: "లంచ్ (31-60)", dinner: "డిన్నర్ (61-90)",
+            bamboo: "బాంబూ", temperature: "టెంపరేచర్", kingQueen: "కింగ్ & క్వీన్",
             fullHouse: "ఫుల్ హౌస్", fullHouse2: "2వ ఫుల్ హౌస్"
           }
         },
@@ -984,6 +1066,7 @@
             topLine: "टॉप लाइन", midLine: "मिडिल लाइन", botLine: "बॉटम लाइन",
             corners: "फोर कॉर्नर्स", breakfast: "ब्रेकफास्ट (1-30)",
             lunch: "लंच (31-60)", dinner: "डिनर (61-90)",
+            bamboo: "बैंबू", temperature: "टेम्परेचर", kingQueen: "किंग एंड क्वीन",
             fullHouse: "फुल हाउस", fullHouse2: "दूसरा फुल हाउस"
           }
         }
@@ -997,7 +1080,8 @@
         90: "Top of the Shop, 90"
       };
 
-      const HOST_BACKUP_KEY = "digital_tambola_v3_host_backup";
+      const BOT_NAMES = ["Bot Ravi 🤖", "Bot Priya 🤖", "Bot Arjun 🤖", "Bot Meera 🤖"];
+      const HOST_BACKUP_KEY = "digital_tambola_v4_host_backup";
       const DARK_MODE_KEY = "digital_tambola_dark_mode";
 
       /* ================= STATE ================= */
@@ -1010,7 +1094,7 @@
       let roomCode = "";
       let roomPin = "";
       let hostConn = null;
-      let clientConns = new Map(); // uid -> DataConnection
+      let clientConns = new Map();
 
       let roundNumber = 1;
       let gameStarted = false;
@@ -1018,32 +1102,36 @@
       let calledSet = new Set();
       let enabledPrizes = [...DEFAULT_ENABLED_PRIZES];
       let bogeyLockEnabled = false;
+      let manualVerifyEnabled = false;
+      let ticketPrice = 0;
       let bogeyLockedUntil = 0;
       let bogeyTimerId = null;
 
-      let claims = {}; // prizeKey -> winnerName
-      let claimUids = {}; // prizeKey -> winnerUid
-      let seriesScores = {}; // uid -> { name, pts, wins }
-      let players = {}; // uid -> { name, spectator, ticketsCount }
+      let claims = {};
+      let claimUids = {};
+      let seriesScores = {};
+      let players = {};
+      let aiBots = []; // [{ uid, name, tickets }]
+      let pendingVerifyQueue = [];
 
-      let myTickets = []; // array of 3x9 grids
-      let myMarked = []; // array of Set(numbers)
+      let myTickets = [];
+      let myMarked = [];
       let myTicketCount = 1;
       let isSpectator = false;
-      let numberUsageCounts = {}; // track across host room if needed
 
       let autoMark = true;
       let voiceOn = true;
       let sfxOn = true;
+      let vibrateOn = true;
       let popupsOn = true;
       let voiceRate = 1.0;
       let currentLang = "en";
+      let wakeLockSentinel = null;
       let autoDrawTimer = null;
       let popupTimer = null;
       let pingTimer = null;
       let lastClaimRequestAt = 0;
 
-      /* ================= DOM HELPERS ================= */
       const $ = (id) => document.getElementById(id);
 
       function showToast(msg) {
@@ -1065,6 +1153,35 @@
         applyDarkMode(!document.body.classList.contains("dark-mode"));
       });
 
+      /* ================= HAPTIC & WAKE LOCK ================= */
+      function triggerVibrate(pattern) {
+        if (!vibrateOn || !navigator.vibrate) return;
+        try { navigator.vibrate(pattern); } catch (_) {}
+      }
+
+      async function toggleWakeLock() {
+        if (!("wakeLock" in navigator)) return showToast("Wake Lock not supported on this browser.");
+        if (wakeLockSentinel) {
+          await wakeLockSentinel.release();
+          wakeLockSentinel = null;
+          $("wakeLockBtn").textContent = "📱 Wake: OFF";
+          showToast("Screen Wake Lock OFF");
+        } else {
+          try {
+            wakeLockSentinel = await navigator.wakeLock.request("screen");
+            $("wakeLockBtn").textContent = "📱 Wake: ON";
+            wakeLockSentinel.addEventListener("release", () => {
+              wakeLockSentinel = null;
+              $("wakeLockBtn").textContent = "📱 Wake: OFF";
+            });
+            showToast("📱 Screen will stay awake!");
+          } catch (_) {
+            showToast("Could not enable Wake Lock.");
+          }
+        }
+      }
+      $("wakeLockBtn").addEventListener("click", toggleWakeLock);
+
       /* ================= AUDIO & VOICE ================= */
       let audioCtx = null;
       function playChime(type = "draw") {
@@ -1084,23 +1201,20 @@
             osc.frequency.setValueAtTime(783.99, now + 0.16);
             gain.gain.setValueAtTime(0.16, now);
             gain.gain.exponentialRampToValueAtTime(0.001, now + 0.42);
-            osc.start(now);
-            osc.stop(now + 0.43);
+            osc.start(now); osc.stop(now + 0.43);
           } else if (type === "bogey") {
             osc.type = "sawtooth";
             osc.frequency.setValueAtTime(190, now);
             osc.frequency.setValueAtTime(140, now + 0.12);
             gain.gain.setValueAtTime(0.12, now);
             gain.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
-            osc.start(now);
-            osc.stop(now + 0.31);
+            osc.start(now); osc.stop(now + 0.31);
           } else {
             osc.type = "sine";
             osc.frequency.setValueAtTime(680, now);
             gain.gain.setValueAtTime(0.1, now);
             gain.gain.exponentialRampToValueAtTime(0.001, now + 0.15);
-            osc.start(now);
-            osc.stop(now + 0.16);
+            osc.start(now); osc.stop(now + 0.16);
           }
         } catch (_) {}
       }
@@ -1125,7 +1239,6 @@
         for (let attempt = 0; attempt < 40; attempt++) {
           const grid = Array.from({ length: 3 }, () => Array(9).fill(0));
           const colCounts = Array(9).fill(0);
-
           for (let r = 0; r < 3; r++) {
             const cols = [0, 1, 2, 3, 4, 5, 6, 7, 8];
             for (let i = cols.length - 1; i > 0; i--) {
@@ -1135,25 +1248,14 @@
             let picked = 0;
             for (const c of cols) {
               if (picked >= 5) break;
-              if (r === 2 && colCounts[c] === 0) {
-                grid[r][c] = 1;
-                colCounts[c]++;
-                picked++;
-              }
+              if (r === 2 && colCounts[c] === 0) { grid[r][c] = 1; colCounts[c]++; picked++; }
             }
             for (const c of cols) {
               if (picked >= 5) break;
-              if (grid[r][c] === 0 && colCounts[c] < 3) {
-                grid[r][c] = 1;
-                colCounts[c]++;
-                picked++;
-              }
+              if (grid[r][c] === 0 && colCounts[c] < 3) { grid[r][c] = 1; colCounts[c]++; picked++; }
             }
           }
-
-          if (colCounts.some((c) => c === 0) || grid.some((row) => row.filter(Boolean).length !== 5)) {
-            continue;
-          }
+          if (colCounts.some((c) => c === 0) || grid.some((row) => row.filter(Boolean).length !== 5)) continue;
 
           for (let c = 0; c < 9; c++) {
             const min = c === 0 ? 1 : c * 10;
@@ -1166,9 +1268,7 @@
             }
             const chosen = pool.slice(0, colCounts[c]).sort((a, b) => a - b);
             let idx = 0;
-            for (let r = 0; r < 3; r++) {
-              if (grid[r][c] === 1) grid[r][c] = chosen[idx++];
-            }
+            for (let r = 0; r < 3; r++) if (grid[r][c] === 1) grid[r][c] = chosen[idx++];
           }
           return grid;
         }
@@ -1189,9 +1289,7 @@
             const min = c === 0 ? 1 : c * 10;
             const max = c === 8 ? 90 : c * 10 + 9;
             if (val < min || val > max || seen.has(val)) return false;
-            seen.add(val);
-            rowCount++;
-            total++;
+            seen.add(val); rowCount++; total++;
           }
           if (rowCount !== 5) return false;
         }
@@ -1214,33 +1312,40 @@
           for (let r = 0; r < 3; r++) {
             for (let c = 0; c < 9; c++) {
               const n = grid[r][c];
-              if (n > 0 && calledSet.has(n)) {
-                myMarked[idx].add(n);
-              }
+              if (n > 0 && calledSet.has(n)) myMarked[idx].add(n);
             }
           }
         });
       }
 
-      /* ================= CLAIM VALIDATION ================= */
-      function getTicketRowNums(grid, r) {
-        return grid[r].filter((n) => n > 0);
+      function hasNumberOnMyTickets(num) {
+        return myTickets.some((grid) => grid.some((row) => row.includes(num)));
       }
 
+      /* ================= CLAIM VALIDATION ================= */
+      function getTicketRowNums(grid, r) { return grid[r].filter((n) => n > 0); }
       function getTicketAllNums(grid) {
         const out = [];
-        for (let r = 0; r < 3; r++) {
-          for (let c = 0; c < 9; c++) if (grid[r][c] > 0) out.push(grid[r][c]);
-        }
+        for (let r = 0; r < 3; r++) for (let c = 0; c < 9; c++) if (grid[r][c] > 0) out.push(grid[r][c]);
         return out;
       }
-
       function getTicketCorners(grid) {
         const top = getTicketRowNums(grid, 0);
         const bot = getTicketRowNums(grid, 2);
         return [top[0], top[top.length - 1], bot[0], bot[bot.length - 1]];
       }
-
+      function getBambooNums(grid) {
+        return [getTicketRowNums(grid, 0)[2], getTicketRowNums(grid, 1)[2], getTicketRowNums(grid, 2)[2]];
+      }
+      function getTemperatureNums(grid) {
+        const all = getTicketAllNums(grid);
+        return [Math.min(...all), Math.max(...all)];
+      }
+      function getKingQueenNums(grid) {
+        const top = getTicketRowNums(grid, 0);
+        const bot = getTicketRowNums(grid, 2);
+        return [top[0], bot[bot.length - 1]];
+      }
       function getRangeNums(grid, min, max) {
         return getTicketAllNums(grid).filter((n) => n >= min && n <= max);
       }
@@ -1248,7 +1353,6 @@
       function validateSingleGridClaim(grid, prizeKey, checkSet) {
         const all = getTicketAllNums(grid);
         const countHit = (arr) => arr.filter((n) => checkSet.has(n)).length;
-
         switch (prizeKey) {
           case "jaldi5": return countHit(all) >= 5;
           case "early7": return countHit(all) >= 7;
@@ -1256,22 +1360,14 @@
           case "midLine": return getTicketRowNums(grid, 1).every((n) => checkSet.has(n));
           case "botLine": return getTicketRowNums(grid, 2).every((n) => checkSet.has(n));
           case "corners": return getTicketCorners(grid).every((n) => checkSet.has(n));
-          case "breakfast": {
-            const arr = getRangeNums(grid, 1, 30);
-            return arr.length > 0 && arr.every((n) => checkSet.has(n));
-          }
-          case "lunch": {
-            const arr = getRangeNums(grid, 31, 60);
-            return arr.length > 0 && arr.every((n) => checkSet.has(n));
-          }
-          case "dinner": {
-            const arr = getRangeNums(grid, 61, 90);
-            return arr.length > 0 && arr.every((n) => checkSet.has(n));
-          }
-          case "fullHouse":
-            return all.every((n) => checkSet.has(n));
-          case "fullHouse2":
-            return Boolean(claims.fullHouse) && all.every((n) => checkSet.has(n));
+          case "bamboo": return getBambooNums(grid).every((n) => checkSet.has(n));
+          case "temperature": return getTemperatureNums(grid).every((n) => checkSet.has(n));
+          case "kingQueen": return getKingQueenNums(grid).every((n) => checkSet.has(n));
+          case "breakfast": { const a = getRangeNums(grid, 1, 30); return a.length > 0 && a.every((n) => checkSet.has(n)); }
+          case "lunch": { const a = getRangeNums(grid, 31, 60); return a.length > 0 && a.every((n) => checkSet.has(n)); }
+          case "dinner": { const a = getRangeNums(grid, 61, 90); return a.length > 0 && a.every((n) => checkSet.has(n)); }
+          case "fullHouse": return all.every((n) => checkSet.has(n));
+          case "fullHouse2": return Boolean(claims.fullHouse) && all.every((n) => checkSet.has(n));
           default: return false;
         }
       }
@@ -1286,21 +1382,14 @@
           case "midLine": return left(getTicketRowNums(grid, 1));
           case "botLine": return left(getTicketRowNums(grid, 2));
           case "corners": return left(getTicketCorners(grid));
-          case "breakfast": {
-            const arr = getRangeNums(grid, 1, 30);
-            return arr.length ? left(arr) : 99;
-          }
-          case "lunch": {
-            const arr = getRangeNums(grid, 31, 60);
-            return arr.length ? left(arr) : 99;
-          }
-          case "dinner": {
-            const arr = getRangeNums(grid, 61, 90);
-            return arr.length ? left(arr) : 99;
-          }
+          case "bamboo": return left(getBambooNums(grid));
+          case "temperature": return left(getTemperatureNums(grid));
+          case "kingQueen": return left(getKingQueenNums(grid));
+          case "breakfast": { const a = getRangeNums(grid, 1, 30); return a.length ? left(a) : 99; }
+          case "lunch": { const a = getRangeNums(grid, 31, 60); return a.length ? left(a) : 99; }
+          case "dinner": { const a = getRangeNums(grid, 61, 90); return a.length ? left(a) : 99; }
           case "fullHouse":
-          case "fullHouse2":
-            return left(all);
+          case "fullHouse2": return left(all);
           default: return 99;
         }
       }
@@ -1312,6 +1401,28 @@
           return enabledPrizes.every((k) => Boolean(claims[k]));
         }
         return fh1Done && fh2Done;
+      }
+
+      /* ================= POT & PAYOUT CALCULATOR ================= */
+      function getTotalPot() {
+        if (!ticketPrice || ticketPrice <= 0) return 0;
+        let totalTickets = 0;
+        Object.values(players).forEach((p) => {
+          if (!p.spectator) totalTickets += Number(p.ticketsCount) || 1;
+        });
+        return totalTickets * ticketPrice;
+      }
+
+      function getPrizePayoutMap() {
+        const pot = getTotalPot();
+        const map = {};
+        if (pot <= 0) return map;
+        let totalWeight = 0;
+        enabledPrizes.forEach((k) => { totalWeight += PRIZE_POINTS[k] || 15; });
+        enabledPrizes.forEach((k) => {
+          map[k] = Math.round((pot * (PRIZE_POINTS[k] || 15)) / (totalWeight || 1));
+        });
+        return map;
       }
 
       /* ================= RENDERING ================= */
@@ -1356,8 +1467,7 @@
         $("ticketActionRow").classList.remove("hidden");
         $("saveTicketPngBtn").classList.remove("hidden");
 
-        let totalNums = 0;
-        let totalMarked = 0;
+        let totalNums = 0, totalMarked = 0;
 
         myTickets.forEach((grid, tIdx) => {
           const card = document.createElement("div");
@@ -1387,10 +1497,7 @@
                   totalMarked++;
                 }
                 cell.onclick = () => {
-                  if (!calledSet.has(num)) {
-                    showToast(`Number ${num} not called yet!`);
-                    return;
-                  }
+                  if (!calledSet.has(num)) return showToast(`Number ${num} not called yet!`);
                   if (myMarked[tIdx].has(num)) myMarked[tIdx].delete(num);
                   else myMarked[tIdx].add(num);
                   renderTicket();
@@ -1414,20 +1521,22 @@
         gridEl.innerHTML = "";
         const labels = I18N[currentLang].prizes;
         const locked = Date.now() < bogeyLockedUntil;
+        const payouts = getPrizePayoutMap();
 
         enabledPrizes.forEach((key) => {
           const btn = document.createElement("button");
           btn.type = "button";
           btn.className = "claim-btn";
           const winner = claims[key];
+          const payTag = payouts[key] ? ` • ₹${payouts[key]}` : "";
 
           if (winner) {
             btn.classList.add("claimed");
             btn.disabled = true;
-            btn.innerHTML = `✅ ${labels[key]}<br><small>${winner}</small>`;
+            btn.innerHTML = `✅ ${labels[key]}${payTag}<br><small>${winner}</small>`;
           } else if (isSpectator) {
             btn.disabled = true;
-            btn.textContent = labels[key];
+            btn.textContent = labels[key] + payTag;
           } else if (locked) {
             btn.classList.add("locked-out");
             btn.disabled = true;
@@ -1435,18 +1544,16 @@
           } else {
             const isReady = myTickets.some((t, i) => validateSingleGridClaim(t, key, myMarked[i]));
             let minLeft = 99;
-            myTickets.forEach((t, i) => {
-              minLeft = Math.min(minLeft, getRemainingForPrize(t, key, myMarked[i]));
-            });
+            myTickets.forEach((t, i) => { minLeft = Math.min(minLeft, getRemainingForPrize(t, key, myMarked[i])); });
             if (isReady && !(key === "fullHouse2" && !claims.fullHouse)) {
               btn.classList.add("claim-ready");
-              btn.innerHTML = `⚡ CLAIM ${labels[key]}!`;
+              btn.innerHTML = `⚡ CLAIM ${labels[key]}!${payTag}`;
             } else if (minLeft === 1 && !(key === "fullHouse2" && !claims.fullHouse)) {
-              btn.innerHTML = `${labels[key]}<br><small style="color:#fde047;">🔥 1 left!</small>`;
+              btn.innerHTML = `${labels[key]}${payTag}<br><small style="color:#fde047;">🔥 1 left!</small>`;
             } else if (key === "fullHouse2" && !claims.fullHouse) {
-              btn.innerHTML = `${labels[key]}<br><small>After 1st Full House</small>`;
+              btn.innerHTML = `${labels[key]}${payTag}<br><small>After 1st Full House</small>`;
             } else {
-              btn.textContent = labels[key];
+              btn.textContent = labels[key] + payTag;
             }
             btn.onclick = () => requestClaim(key);
           }
@@ -1454,7 +1561,7 @@
         });
       }
 
-      function renderMasterBoard() {
+      function renderMasterBoardAndLog() {
         const board = $("masterBoard");
         board.innerHTML = "";
         const latest = calledNumbers[calledNumbers.length - 1];
@@ -1477,6 +1584,15 @@
             };
           }
           board.appendChild(cell);
+        }
+
+        const log = $("drawLogStrip");
+        if (!calledNumbers.length) {
+          log.textContent = "No numbers called yet.";
+        } else {
+          log.innerHTML = calledNumbers.map((n, i) =>
+            `<span class="log-chip">#${i + 1} → <strong>${n}</strong></span>`
+          ).reverse().join("");
         }
       }
 
@@ -1510,41 +1626,36 @@
       }
 
       function renderLeaderboardsAndPlayers() {
-        // Series Leaderboard
+        const pot = getTotalPot();
+        const payouts = getPrizePayoutMap();
+        $("potBadge").classList.toggle("hidden", pot <= 0);
+        $("potBadge").textContent = `💰 Pot: ₹${pot}`;
+
         const sPanel = $("seriesLeaderboardPanel");
         const sArr = Object.values(seriesScores).sort((a, b) => b.pts - a.pts || b.wins - a.wins);
         if (!sArr.length) {
-          sPanel.innerHTML = `<div style="font-size:0.8rem; color:var(--muted);">No series points yet. Win prizes to rank!</div>`;
+          sPanel.innerHTML = `<div style="font-size:0.8rem; color:var(--muted);">No series points yet.</div>`;
         } else {
           sPanel.innerHTML = sArr.slice(0, 6).map((p, idx) =>
-            `<div class="lb-row"><span>${idx === 0 ? "👑" : `#${idx + 1}`} ${p.name}</span><span>${p.pts} pts (${p.wins}W)</span></div>`
+            `<div class="lb-row"><span>${idx === 0 ? "👑" : `#${idx + 1}`} ${p.name}</span><span>${p.pts} pts (${p.wins}W)${p.cash ? ` • ₹${p.cash}` : ""}</span></div>`
           ).join("");
         }
 
-        // Round Top 3
         const rPanel = $("roundLeaderboardPanel");
-        const tally = {};
-        Object.entries(claims).forEach(([k, name]) => {
-          const uid = claimUids[k] || name;
-          if (!tally[uid]) tally[uid] = { name, pts: 0, wins: 0 };
-          tally[uid].pts += PRIZE_POINTS[k] || 15;
-          tally[uid].wins += 1;
-        });
-        const rArr = Object.values(tally).sort((a, b) => b.pts - a.pts);
-        if (!rArr.length) {
+        const entries = Object.entries(claims);
+        if (!entries.length) {
           rPanel.innerHTML = `<div style="font-size:0.8rem; color:var(--muted);">No round winners yet.</div>`;
         } else {
-          rPanel.innerHTML = rArr.slice(0, 3).map((p, i) =>
-            `<div class="lb-row"><span>${["🥇", "🥈", "🥉"][i]} ${p.name}</span><span>+${p.pts} pts</span></div>`
+          rPanel.innerHTML = entries.map(([k, name]) =>
+            `<div class="lb-row"><span>🏆 ${I18N[currentLang].prizes[k]}</span><span>${name}${payouts[k] ? ` (₹${payouts[k]})` : ""}</span></div>`
           ).join("");
         }
 
-        // Players List
         const pPanel = $("playersListPanel");
         const pList = Object.values(players);
         $("playersBadge").textContent = `👥 ${pList.length}`;
         pPanel.innerHTML = pList.map((p) =>
-          `<span class="badge">${p.spectator ? "👀" : "🎟️"} ${p.name}</span>`
+          `<span class="badge">${p.spectator ? "👀" : "🎟️"} ${p.name}${p.ticketsCount > 1 ? ` ×${p.ticketsCount}` : ""}</span>`
         ).join("");
       }
 
@@ -1566,7 +1677,7 @@
         renderCalledHeader();
         renderTicket();
         renderClaimButtonsGrid();
-        renderMasterBoard();
+        renderMasterBoardAndLog();
         renderLeaderboardsAndPlayers();
         updateHostButtonsUI();
       }
@@ -1591,6 +1702,19 @@
         setTimeout(() => div.remove(), 2700);
       }
 
+      function appendChatMessage(name, text) {
+        const box = $("chatBox");
+        if (box.children.length === 1 && box.textContent.includes("Say hi")) box.innerHTML = "";
+        const line = document.createElement("div");
+        line.className = "chat-line";
+        const strong = document.createElement("strong");
+        strong.textContent = name + ": ";
+        line.appendChild(strong);
+        line.appendChild(document.createTextNode(text));
+        box.appendChild(line);
+        box.scrollTop = box.scrollHeight;
+      }
+
       /* ================= BOGEY LOCKOUT ================= */
       function triggerBogeyLockout() {
         if (!bogeyLockEnabled) return;
@@ -1612,65 +1736,50 @@
         renderClaimButtonsGrid();
       }
 
-      /* ================= PNG TICKET DOWNLOAD ================= */
+      /* ================= PNG EXPORTS ================= */
       function downloadTicketCardPNG() {
         if (isSpectator || !myTickets.length) return showToast("No tickets to export!");
         const canvas = document.createElement("canvas");
-        const w = 720;
-        const ticketH = 220;
+        const w = 720, ticketH = 220;
         const h = 90 + myTickets.length * (ticketH + 20);
-        canvas.width = w;
-        canvas.height = h;
+        canvas.width = w; canvas.height = h;
         const ctx = canvas.getContext("2d");
 
         ctx.fillStyle = document.body.classList.contains("dark-mode") ? "#0f172a" : "#fdf8eb";
         ctx.fillRect(0, 0, w, h);
-
         ctx.fillStyle = document.body.classList.contains("dark-mode") ? "#fde047" : "#1e293b";
         ctx.font = "bold 26px sans-serif";
-        ctx.fillText(`Digital Tambola V3 — Room ${roomCode}`, 24, 42);
+        ctx.fillText(`Digital Tambola V4 — Room ${roomCode}`, 24, 42);
         ctx.font = "16px sans-serif";
         ctx.fillStyle = "#64748b";
         ctx.fillText(`Player: ${myName}  |  Round ${roundNumber}  |  Digital Swami`, 24, 68);
 
         myTickets.forEach((grid, idx) => {
           const y0 = 90 + idx * (ticketH + 20);
-          ctx.fillStyle = "#ffffff";
-          ctx.strokeStyle = "#d97706";
-          ctx.lineWidth = 3;
-          ctx.fillRect(24, y0, w - 48, ticketH);
-          ctx.strokeRect(24, y0, w - 48, ticketH);
-
-          const cellW = (w - 64) / 9;
-          const cellH = (ticketH - 36) / 3;
-          ctx.fillStyle = "#b45309";
-          ctx.font = "bold 14px sans-serif";
+          ctx.fillStyle = "#ffffff"; ctx.strokeStyle = "#d97706"; ctx.lineWidth = 3;
+          ctx.fillRect(24, y0, w - 48, ticketH); ctx.strokeRect(24, y0, w - 48, ticketH);
+          const cellW = (w - 64) / 9, cellH = (ticketH - 36) / 3;
+          ctx.fillStyle = "#b45309"; ctx.font = "bold 14px sans-serif";
           ctx.fillText(`Ticket #${idx + 1}`, 34, y0 + 20);
 
           for (let r = 0; r < 3; r++) {
             for (let c = 0; c < 9; c++) {
-              const x = 32 + c * cellW;
-              const y = y0 + 28 + r * cellH;
-              const val = grid[r][c];
+              const x = 32 + c * cellW, y = y0 + 28 + r * cellH, val = grid[r][c];
               const marked = val > 0 && myMarked[idx].has(val);
               ctx.fillStyle = marked ? "#16a34a" : (val === 0 ? "#f1f5f9" : "#fffbeb");
               ctx.fillRect(x + 2, y + 2, cellW - 4, cellH - 4);
-              ctx.strokeStyle = "#cbd5e1";
-              ctx.lineWidth = 1;
+              ctx.strokeStyle = "#cbd5e1"; ctx.lineWidth = 1;
               ctx.strokeRect(x + 2, y + 2, cellW - 4, cellH - 4);
               if (val > 0) {
                 ctx.fillStyle = marked ? "#ffffff" : "#0f172a";
                 ctx.font = "bold 20px sans-serif";
-                ctx.textAlign = "center";
-                ctx.textBaseline = "middle";
+                ctx.textAlign = "center"; ctx.textBaseline = "middle";
                 ctx.fillText(String(val), x + cellW / 2, y + cellH / 2);
-                ctx.textAlign = "left";
-                ctx.textBaseline = "alphabetic";
+                ctx.textAlign = "left"; ctx.textBaseline = "alphabetic";
               }
             }
           }
         });
-
         const a = document.createElement("a");
         a.download = `tambola-${roomCode}-r${roundNumber}.png`;
         a.href = canvas.toDataURL("image/png");
@@ -1678,13 +1787,100 @@
         showToast("🖼️ Ticket PNG downloaded!");
       }
 
+      function downloadWinnersPodiumPNG() {
+        const sArr = Object.values(seriesScores).sort((a, b) => b.pts - a.pts);
+        const rEntries = Object.entries(claims);
+        if (!sArr.length && !rEntries.length) return showToast("No winners yet to export!");
+
+        const canvas = document.createElement("canvas");
+        const w = 680;
+        const h = 210 + Math.max(sArr.slice(0, 5).length, rEntries.length) * 36;
+        canvas.width = w; canvas.height = h;
+        const ctx = canvas.getContext("2d");
+
+        ctx.fillStyle = "#0f172a";
+        ctx.fillRect(0, 0, w, h);
+        ctx.strokeStyle = "#fbbf24"; ctx.lineWidth = 4;
+        ctx.strokeRect(12, 12, w - 24, h - 24);
+
+        ctx.fillStyle = "#fde047"; ctx.font = "bold 28px sans-serif";
+        ctx.fillText(`🏆 Digital Tambola V4 Winners`, 32, 56);
+        ctx.fillStyle = "#94a3b8"; ctx.font = "16px sans-serif";
+        const pot = getTotalPot();
+        ctx.fillText(`Room ${roomCode}  |  Round ${roundNumber}${pot ? `  |  Pot ₹${pot}` : ""}  |  Digital Swami`, 32, 84);
+
+        ctx.fillStyle = "#38bdf8"; ctx.font = "bold 18px sans-serif";
+        ctx.fillText("Series Top Players", 32, 125);
+        ctx.fillText("Round Prize Winners", 350, 125);
+
+        ctx.font = "16px sans-serif";
+        sArr.slice(0, 5).forEach((p, i) => {
+          ctx.fillStyle = i === 0 ? "#fde047" : "#f8fafc";
+          ctx.fillText(`${i + 1}. ${p.name} — ${p.pts} pts${p.cash ? ` (₹${p.cash})` : ""}`, 32, 158 + i * 32);
+        });
+
+        const payouts = getPrizePayoutMap();
+        rEntries.slice(0, 8).forEach(([k, name], i) => {
+          ctx.fillStyle = "#a7f3d0";
+          ctx.fillText(`${I18N[currentLang].prizes[k]}: ${name}${payouts[k] ? ` (₹${payouts[k]})` : ""}`, 350, 158 + i * 28);
+        });
+
+        const a = document.createElement("a");
+        a.download = `tambola-winners-${roomCode}-r${roundNumber}.png`;
+        a.href = canvas.toDataURL("image/png");
+        a.click();
+        showToast("🏅 Winners Podium PNG downloaded!");
+      }
+
+      /* ================= HOST MANUAL VERIFY MODAL ================= */
+      function openNextVerifyModal() {
+        if (!pendingVerifyQueue.length) {
+          $("verifyModal").classList.remove("open");
+          return;
+        }
+        const req = pendingVerifyQueue[0];
+        $("verifyMeta").textContent = `${req.name} claims ${I18N[currentLang].prizes[req.prizeKey]}!`;
+        const box = $("verifyTicketsPreview");
+        box.innerHTML = "";
+        req.tickets.forEach((grid, idx) => {
+          const wrap = document.createElement("div");
+          wrap.className = "tambola-ticket";
+          wrap.innerHTML = `<div class="ticket-header-row"><span>Ticket #${idx + 1}</span></div>`;
+          const g = document.createElement("div");
+          g.className = "t-grid";
+          for (let r = 0; r < 3; r++) {
+            for (let c = 0; c < 9; c++) {
+              const v = grid[r][c];
+              const cell = document.createElement("div");
+              cell.className = "t-cell" + (v === 0 ? " empty" : (calledSet.has(v) ? " marked" : ""));
+              if (v > 0) cell.textContent = v;
+              g.appendChild(cell);
+            }
+          }
+          wrap.appendChild(g);
+          box.appendChild(wrap);
+        });
+        $("verifyModal").classList.add("open");
+      }
+
+      $("verifyApproveBtn").addEventListener("click", () => {
+        const req = pendingVerifyQueue.shift();
+        if (req) finalizeClaimWin(req.uid, req.name, req.prizeKey);
+        openNextVerifyModal();
+      });
+      $("verifyRejectBtn").addEventListener("click", () => {
+        const req = pendingVerifyQueue.shift();
+        if (req) rejectClaim(req.uid, req.prizeKey, "Rejected by Host!");
+        openNextVerifyModal();
+      });
+
       /* ================= HOST PERSISTENCE & SYNC ================= */
       function saveHostBackup() {
         if (!isHost || !roomCode) return;
         localStorage.setItem(HOST_BACKUP_KEY, JSON.stringify({
           roomCode, roomPin, roundNumber, gameStarted,
-          calledNumbers, enabledPrizes, bogeyLockEnabled,
-          claims, claimUids, seriesScores,
+          calledNumbers, enabledPrizes, bogeyLockEnabled, manualVerifyEnabled, ticketPrice,
+          claims, claimUids, seriesScores, aiBots,
           myTickets, myName, myTicketCount
         }));
       }
@@ -1692,38 +1888,52 @@
       function buildSyncPayload() {
         return {
           type: "SYNC_STATE",
-          roomCode,
-          hasPin: Boolean(roomPin),
-          roundNumber,
-          gameStarted,
-          calledNumbers,
-          enabledPrizes,
-          bogeyLockEnabled,
-          claims,
-          claimUids,
-          seriesScores,
-          players
+          roomCode, hasPin: Boolean(roomPin),
+          roundNumber, gameStarted,
+          calledNumbers, enabledPrizes,
+          bogeyLockEnabled, manualVerifyEnabled, ticketPrice,
+          claims, claimUids, seriesScores, players
         };
       }
 
       function broadcast(msg) {
-        clientConns.forEach((conn) => {
-          if (conn && conn.open) conn.send(msg);
-        });
+        clientConns.forEach((conn) => { if (conn && conn.open) conn.send(msg); });
+      }
+      function broadcastSync() { saveHostBackup(); broadcast(buildSyncPayload()); }
+
+      /* ================= AI BOTS ENGINE ================= */
+      function initBots(count) {
+        aiBots = [];
+        for (let i = 0; i < count; i++) {
+          const uid = `bot_${i + 1}`;
+          const name = BOT_NAMES[i] || `Bot ${i + 1} 🤖`;
+          const tickets = [generateTambolaTicket()];
+          aiBots.push({ uid, name, tickets });
+          players[uid] = { name, spectator: false, ticketsCount: 1 };
+        }
       }
 
-      function broadcastSync() {
-        saveHostBackup();
-        broadcast(buildSyncPayload());
+      function runBotsCheck() {
+        if (!isHost || !aiBots.length) return;
+        aiBots.forEach((bot, idx) => {
+          setTimeout(() => {
+            if (isRoundComplete()) return;
+            for (const key of enabledPrizes) {
+              if (claims[key]) continue;
+              if (key === "fullHouse2" && (!claims.fullHouse || claimUids.fullHouse === bot.uid)) continue;
+              if (bot.tickets.some((t) => validateSingleGridClaim(t, key, calledSet))) {
+                finalizeClaimWin(bot.uid, bot.name, key);
+                break;
+              }
+            }
+          }, 650 + idx * 320);
+        });
       }
 
       /* ================= HOST ACTIONS ================= */
       function hostDrawNext() {
         if (!isHost) return;
-        if (calledNumbers.length >= 90 || isRoundComplete()) {
-          stopAutoDraw();
-          return;
-        }
+        if (calledNumbers.length >= 90 || isRoundComplete()) { stopAutoDraw(); return; }
         const remaining = [];
         for (let n = 1; n <= 90; n++) if (!calledSet.has(n)) remaining.push(n);
         if (!remaining.length) return;
@@ -1734,12 +1944,14 @@
         calledSet.add(picked);
 
         autoMarkAllCalled();
+        if (hasNumberOnMyTickets(picked)) triggerVibrate([40, 30, 40]);
         playChime("draw");
         speakNumber(picked);
         showDrawPopup(picked);
         renderAllGameUI();
         saveHostBackup();
         broadcast({ type: "NUMBER_CALLED", num: picked, roundNumber });
+        runBotsCheck();
       }
 
       function stopAutoDraw() {
@@ -1757,12 +1969,13 @@
         calledSet.clear();
         claims = {};
         claimUids = {};
+        pendingVerifyQueue = [];
+        $("verifyModal").classList.remove("open");
 
         Object.keys(players).forEach((uid) => {
-          if (players[uid].spectator) {
-            players[uid].spectator = false;
-          }
+          if (players[uid].spectator) players[uid].spectator = false;
         });
+        aiBots.forEach((b) => { b.tickets = [generateTambolaTicket()]; });
         isSpectator = false;
         generateTicketSet(myTicketCount);
 
@@ -1772,54 +1985,64 @@
         showToast(`🔄 Round ${roundNumber} Started!`);
       }
 
-      function processClaim(uid, name, prizeKey, submittedTickets) {
-        if (!isHost) return;
-        if (!enabledPrizes.includes(prizeKey) || claims[prizeKey]) return;
+      function finalizeClaimWin(uid, name, prizeKey) {
+        if (claims[prizeKey]) return;
+        claims[prizeKey] = name;
+        claimUids[prizeKey] = uid;
+        const pts = PRIZE_POINTS[prizeKey] || 15;
+        const payouts = getPrizePayoutMap();
+        const cash = payouts[prizeKey] || 0;
 
+        if (!seriesScores[uid]) seriesScores[uid] = { name, pts: 0, wins: 0, cash: 0 };
+        seriesScores[uid].name = name;
+        seriesScores[uid].pts += pts;
+        seriesScores[uid].wins += 1;
+        seriesScores[uid].cash = (seriesScores[uid].cash || 0) + cash;
+
+        playChime("win");
+        triggerVibrate([80, 40, 120]);
+        if (window.confetti) confetti({ particleCount: 70, spread: 65, origin: { y: 0.7 } });
+        showToast(`🏆 ${name} won ${I18N[currentLang].prizes[prizeKey]}${cash ? ` (₹${cash})` : ""}!`);
+
+        broadcast({ type: "CLAIM_APPROVED", prizeKey, winnerName: name, winnerUid: uid, seriesScores });
+        saveHostBackup();
+        renderAllGameUI();
+      }
+
+      function rejectClaim(uid, prizeKey, reason) {
+        playChime("bogey");
+        if (uid === myUid) {
+          showToast(`❌ ${reason}`);
+          triggerBogeyLockout();
+        } else {
+          sendToUid(uid, { type: "CLAIM_REJECTED", prizeKey, reason });
+        }
+      }
+
+      function processClaim(uid, name, prizeKey, submittedTickets) {
+        if (!isHost || !enabledPrizes.includes(prizeKey) || claims[prizeKey]) return;
         if (prizeKey === "fullHouse2") {
-          if (!claims.fullHouse) {
-            sendToUid(uid, { type: "CLAIM_REJECTED", prizeKey, reason: "1st Full House must be claimed first!" });
-            return;
-          }
+          if (!claims.fullHouse) return rejectClaim(uid, prizeKey, "1st Full House must be claimed first!");
           if (claimUids.fullHouse === uid && Object.keys(players).length > 1) {
-            sendToUid(uid, { type: "CLAIM_REJECTED", prizeKey, reason: "1st Full House winner cannot claim 2nd Full House!" });
-            return;
+            return rejectClaim(uid, prizeKey, "1st Full House winner cannot claim 2nd Full House!");
           }
+        }
+
+        if (manualVerifyEnabled && !uid.startsWith("bot_")) {
+          if (!Array.isArray(submittedTickets) || !submittedTickets.every(isValidTambolaTicket)) {
+            return rejectClaim(uid, prizeKey, "Invalid ticket structure!");
+          }
+          pendingVerifyQueue.push({ uid, name, prizeKey, tickets: submittedTickets });
+          if (pendingVerifyQueue.length === 1) openNextVerifyModal();
+          showToast(`⚖️ ${name} requested ${I18N[currentLang].prizes[prizeKey]} — verify now!`);
+          return;
         }
 
         const valid = Array.isArray(submittedTickets) && submittedTickets.some((grid) =>
           isValidTambolaTicket(grid) && validateSingleGridClaim(grid, prizeKey, calledSet)
         );
-
-        if (valid) {
-          claims[prizeKey] = name;
-          claimUids[prizeKey] = uid;
-          const pts = PRIZE_POINTS[prizeKey] || 15;
-          if (!seriesScores[uid]) seriesScores[uid] = { name, pts: 0, wins: 0 };
-          seriesScores[uid].name = name;
-          seriesScores[uid].pts += pts;
-          seriesScores[uid].wins += 1;
-
-          playChime("win");
-          if (window.confetti) confetti({ particleCount: 70, spread: 65, origin: { y: 0.7 } });
-          showToast(`🏆 ${name} won ${I18N[currentLang].prizes[prizeKey]}!`);
-
-          broadcast({
-            type: "CLAIM_APPROVED",
-            prizeKey, winnerName: name, winnerUid: uid,
-            seriesScores
-          });
-          saveHostBackup();
-          renderAllGameUI();
-        } else {
-          playChime("bogey");
-          if (uid === myUid) {
-            showToast("❌ Bogey! Invalid claim.");
-            triggerBogeyLockout();
-          } else {
-            sendToUid(uid, { type: "CLAIM_REJECTED", prizeKey, reason: "Bogey! Numbers not complete yet." });
-          }
-        }
+        if (valid) finalizeClaimWin(uid, name, prizeKey);
+        else rejectClaim(uid, prizeKey, "Bogey! Numbers not complete yet.");
       }
 
       function sendToUid(uid, msg) {
@@ -1865,6 +2088,11 @@
             broadcast(data);
             break;
           }
+          case "CHAT_MSG": {
+            appendChatMessage(data.name, data.text);
+            broadcast(data);
+            break;
+          }
           case "PING": {
             conn.send(buildSyncPayload());
             break;
@@ -1891,6 +2119,8 @@
             calledSet = new Set(calledNumbers);
             enabledPrizes = data.enabledPrizes || [...DEFAULT_ENABLED_PRIZES];
             bogeyLockEnabled = Boolean(data.bogeyLockEnabled);
+            manualVerifyEnabled = Boolean(data.manualVerifyEnabled);
+            ticketPrice = Number(data.ticketPrice) || 0;
             claims = data.claims || {};
             claimUids = data.claimUids || {};
             seriesScores = data.seriesScores || {};
@@ -1915,6 +2145,7 @@
               calledNumbers.push(data.num);
               calledSet.add(data.num);
               autoMarkAllCalled();
+              if (hasNumberOnMyTickets(data.num)) triggerVibrate([40, 30, 40]);
               playChime("draw");
               speakNumber(data.num);
               showDrawPopup(data.num);
@@ -1927,6 +2158,7 @@
             claimUids[data.prizeKey] = data.winnerUid;
             if (data.seriesScores) seriesScores = data.seriesScores;
             playChime("win");
+            triggerVibrate([80, 40, 120]);
             if (window.confetti) confetti({ particleCount: 60, spread: 60, origin: { y: 0.7 } });
             showToast(`🏆 ${data.winnerName} won ${I18N[currentLang].prizes[data.prizeKey]}!`);
             renderClaimButtonsGrid();
@@ -1952,19 +2184,18 @@
             showToast(`🔄 Round ${roundNumber} Started!`);
             break;
           }
-          case "EMOJI_REACTION": {
-            spawnReaction(data.name, data.emoji);
-            break;
-          }
+          case "EMOJI_REACTION": { spawnReaction(data.name, data.emoji); break; }
+          case "CHAT_MSG": { appendChatMessage(data.name, data.text); break; }
         }
       }
 
       /* ================= HOST & JOIN ENTRYPOINTS ================= */
-      function hostGame(resumeBackup = null) {
+      function hostGame(resumeBackup = null, forceBots = null) {
         if (peer) peer.destroy();
         clientConns.clear();
         isHost = true;
         isSpectator = false;
+        aiBots = [];
 
         if (resumeBackup) {
           roomCode = resumeBackup.roomCode;
@@ -1975,9 +2206,12 @@
           calledSet = new Set(calledNumbers);
           enabledPrizes = resumeBackup.enabledPrizes || [...DEFAULT_ENABLED_PRIZES];
           bogeyLockEnabled = Boolean(resumeBackup.bogeyLockEnabled);
+          manualVerifyEnabled = Boolean(resumeBackup.manualVerifyEnabled);
+          ticketPrice = Number(resumeBackup.ticketPrice) || 0;
           claims = resumeBackup.claims || {};
           claimUids = resumeBackup.claimUids || {};
           seriesScores = resumeBackup.seriesScores || {};
+          aiBots = resumeBackup.aiBots || [];
           myName = resumeBackup.myName || "Host";
           myTicketCount = resumeBackup.myTicketCount || 1;
           myTickets = resumeBackup.myTickets || [];
@@ -1988,6 +2222,8 @@
           myTicketCount = Number($("hostTicketCount").value) || 1;
           roomPin = ($("hostPinInput").value || "").trim();
           bogeyLockEnabled = $("hostBogeyLockChk").checked;
+          manualVerifyEnabled = $("hostManualVerifyChk").checked;
+          ticketPrice = Math.max(0, Number($("hostTicketPrice").value) || 0);
           roomCode = "TMB" + Math.floor(100 + Math.random() * 900);
           roundNumber = 1;
           gameStarted = false;
@@ -1996,11 +2232,16 @@
           claims = {};
           claimUids = {};
           seriesScores = {};
-          numberUsageCounts = {};
           generateTicketSet(myTicketCount);
         }
 
         players = { [myUid]: { name: myName, spectator: false, ticketsCount: myTicketCount } };
+        if (!resumeBackup) {
+          const botCount = forceBots !== null ? forceBots : (Number($("hostBotsSelect").value) || 0);
+          if (botCount > 0) initBots(botCount);
+        } else {
+          aiBots.forEach((b) => { players[b.uid] = { name: b.name, spectator: false, ticketsCount: b.tickets.length }; });
+        }
 
         peer = new Peer("digital-tambola-" + roomCode);
         peer.on("open", () => {
@@ -2023,7 +2264,17 @@
             }
           });
         });
-        peer.on("error", (err) => showToast("Peer error: " + err.type));
+        peer.on("error", (err) => {
+          if (forceBots !== null) {
+            // Allow offline solo bots play even without internet PeerJS server
+            $("lobbySection").classList.add("hidden");
+            $("gameSection").classList.remove("hidden");
+            renderAllGameUI();
+            showToast("🤖 Offline Solo Mode Active!");
+          } else {
+            showToast("Peer error: " + err.type);
+          }
+        });
       }
 
       function joinGame() {
@@ -2055,11 +2306,8 @@
             clearTimeout(connectTimeout);
             hostConn.send({
               type: "JOIN_HELLO",
-              uid: myUid,
-              name: myName,
-              pin: enteredPin,
-              spectator: isSpectator,
-              ticketsCount: myTicketCount
+              uid: myUid, name: myName, pin: enteredPin,
+              spectator: isSpectator, ticketsCount: myTicketCount
             });
             clearInterval(pingTimer);
             pingTimer = setInterval(() => {
@@ -2084,28 +2332,27 @@
         if (isHost) {
           processClaim(myUid, myName, prizeKey, myTickets);
         } else if (hostConn && hostConn.open) {
-          hostConn.send({
-            type: "CLAIM_REQUEST",
-            uid: myUid,
-            name: myName,
-            prizeKey,
-            tickets: myTickets
-          });
+          hostConn.send({ type: "CLAIM_REQUEST", uid: myUid, name: myName, prizeKey, tickets: myTickets });
+          if (manualVerifyEnabled) showToast("⚖️ Sent to Host for verification!");
         }
       }
 
       /* ================= EVENT LISTENERS ================= */
-      $("hostBtn").addEventListener("click", () => hostGame(null));
+      $("hostBtn").addEventListener("click", () => hostGame(null, null));
+      $("soloBotsBtn").addEventListener("click", () => {
+        const count = Number($("hostBotsSelect").value) || 3;
+        hostGame(null, count);
+      });
       $("joinBtn").addEventListener("click", joinGame);
       $("drawBtn").addEventListener("click", hostDrawNext);
       $("newRoundBtn").addEventListener("click", resetGameRound);
       $("saveTicketPngBtn").addEventListener("click", downloadTicketCardPNG);
+      $("shareWinnersPngBtn").addEventListener("click", downloadWinnersPodiumPNG);
 
       $("autoDrawBtn").addEventListener("click", () => {
-        if (autoDrawTimer) {
-          stopAutoDraw();
-        } else {
-          const ms = Number($("autoSpeedSelect").value) || 6000;
+        if (autoDrawTimer) stopAutoDraw();
+        else {
+          const ms = Number($("autoSpeedSelect").value) || 5500;
           $("autoDrawBtn").textContent = "⏱️ Auto: ON";
           hostDrawNext();
           autoDrawTimer = setInterval(hostDrawNext, ms);
@@ -2125,11 +2372,7 @@
       $("autoMarkBtn").addEventListener("click", () => {
         autoMark = !autoMark;
         $("autoMarkBtn").textContent = autoMark ? "🪄 Auto-Mark: ON" : "🪄 Auto-Mark: OFF";
-        if (autoMark) {
-          autoMarkAllCalled();
-          renderTicket();
-          renderClaimButtonsGrid();
-        }
+        if (autoMark) { autoMarkAllCalled(); renderTicket(); renderClaimButtonsGrid(); }
       });
 
       $("ticketThemeSelect").addEventListener("change", (e) => {
@@ -2142,10 +2385,7 @@
         $("gamePopupBtn").textContent = txt;
       }
       [$("lobbyPopupBtn"), $("gamePopupBtn")].forEach((btn) => {
-        btn.addEventListener("click", () => {
-          popupsOn = !popupsOn;
-          syncPopupBtnUI();
-        });
+        btn.addEventListener("click", () => { popupsOn = !popupsOn; syncPopupBtnUI(); });
       });
 
       $("voiceToggleBtn").addEventListener("click", () => {
@@ -2159,6 +2399,10 @@
       $("soundToggleBtn").addEventListener("click", () => {
         sfxOn = !sfxOn;
         $("soundToggleBtn").textContent = sfxOn ? "🔔 SFX: ON" : "🔕 SFX: OFF";
+      });
+      $("vibrateToggleBtn").addEventListener("click", () => {
+        vibrateOn = !vibrateOn;
+        $("vibrateToggleBtn").textContent = vibrateOn ? "📳 Haptic: ON" : "📳 Haptic: OFF";
       });
 
       $("langSelect").addEventListener("change", (e) => {
@@ -2179,6 +2423,25 @@
           if (isHost) broadcast(msg);
           else if (hostConn && hostConn.open) hostConn.send(msg);
         });
+      });
+
+      function sendChatText(text) {
+        const clean = (text || "").trim();
+        if (!clean) return;
+        appendChatMessage(myName, clean);
+        const msg = { type: "CHAT_MSG", name: myName, text: clean };
+        if (isHost) broadcast(msg);
+        else if (hostConn && hostConn.open) hostConn.send(msg);
+      }
+      $("sendChatBtn").addEventListener("click", () => {
+        sendChatText($("chatInput").value);
+        $("chatInput").value = "";
+      });
+      $("chatInput").addEventListener("keydown", (e) => {
+        if (e.key === "Enter") { sendChatText($("chatInput").value); $("chatInput").value = ""; }
+      });
+      document.querySelectorAll(".quick-chat-btn").forEach((b) => {
+        b.addEventListener("click", () => sendChatText(b.dataset.msg));
       });
 
       $("inviteBtn").addEventListener("click", () => {
@@ -2209,7 +2472,6 @@
 
       /* ================= INIT ================= */
       renderHostPrizeConfig();
-
       const urlRoom = new URLSearchParams(location.search).get("room");
       if (urlRoom) $("roomCodeInput").value = urlRoom.toUpperCase();
 
@@ -2217,19 +2479,15 @@
         const savedHost = JSON.parse(localStorage.getItem(HOST_BACKUP_KEY) || "null");
         if (savedHost && savedHost.roomCode) {
           $("resumeHostBtn").classList.remove("hidden");
-          $("resumeHostBtn").onclick = () => hostGame(savedHost);
+          $("resumeHostBtn").onclick = () => hostGame(savedHost, null);
         }
       } catch (_) {}
 
-      // Dynamic PWA Manifest
       try {
         const manifest = {
-          name: "Digital Tambola V3",
-          short_name: "Tambola V3",
-          start_url: location.href,
-          display: "standalone",
-          background_color: "#0f172a",
-          theme_color: "#0f172a"
+          name: "Digital Tambola V4", short_name: "Tambola V4",
+          start_url: location.href, display: "standalone",
+          background_color: "#0f172a", theme_color: "#0f172a"
         };
         const blob = new Blob([JSON.stringify(manifest)], { type: "application/json" });
         $("dynamicManifest").href = URL.createObjectURL(blob);
